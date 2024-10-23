@@ -15,30 +15,43 @@ class CreateResidencyCertificateApplicantsTable extends Migration
     {
         Schema::create('residency_certificate_applicants', function (Blueprint $table) {
             $table->id();
-            // 期名称
-            $table->string('cohort_name'); // cohort_name
-            // 名前
-            $table->string('name'); // name
-            // 名前カナ
-            $table->string('name_kana'); // name_kana
-            // ユーザー名
-            $table->string('username')->unique(); // username
-            // パスワード
-            $table->string('password'); // password
-            // メールアドレス
-            $table->string('email')->unique(); // email
-            // 国
-            $table->string('country'); // country
-            // 言語
-            $table->string('language'); // language
-            // 年齢
-            $table->integer('age'); // age
-            // 性別
-            $table->enum('gender', ['male', 'female', 'other']); // gender
-            // 日本語レベル
-            $table->string('japanese_level'); // japanese_level
-            // ライブクラスレッスン
-            $table->boolean('live_class_lesson')->default(false); // live_class_lesson
+
+            $table->string('cohort_name')
+                ->comment('期名称'); // Cohort Name
+
+            $table->string('name')
+                ->comment('名前'); // Name
+
+            $table->string('name_kana')
+                ->comment('名前カナ'); // Name Kana
+
+            $table->string('username')->unique()
+                ->comment('ユーザー名'); // Username
+
+            $table->string('password')
+                ->comment('パスワード'); // Password
+
+            $table->string('email')->unique()
+                ->comment('メールアドレス'); // Email
+
+            $table->string('country')
+                ->comment('国'); // Country
+
+            $table->string('language')
+                ->comment('言語'); // Language
+
+            $table->integer('age')
+                ->comment('年齢'); // Age
+
+            $table->enum('gender', ['male', 'female', 'other'])
+                ->comment('性別'); // Gender
+
+            $table->string('japanese_level')
+                ->comment('日本語レベル'); // Japanese Level
+
+            $table->boolean('live_class_lesson')->default(false)
+                ->comment('ライブクラスレッスン'); // Live Class Lesson
+
             $table->timestamps();
         });
     }

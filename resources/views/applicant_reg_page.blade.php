@@ -3,6 +3,13 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight font-color-r">
             {{ __('Applicant Registration Page') }}
         </h2>
+        @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+            <a href="{{ route('locale.switch', ['locale' => $localeCode]) }}"
+                class="font-color-g">{{ $properties['native'] }}</a>
+            @if (!$loop->last)
+                <span class="mx-5">|</span>
+            @endif
+        @endforeach
     </x-slot>
 
     <div class="py-12">
@@ -17,37 +24,38 @@
                                     <!-- 左ブロック -->
                                     <div class="flex flex-col">
                                         <div class="mb-4">
-                                            <label for="">ユーザーID</label>
+                                            <label for="">{{ __('applicant_reg_page.userId') }}</label>
                                             <span><!-- {{ $userId ?? 'データがありません' }} --></span>
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="">名前</label>
+                                            <label for="">{{ __('applicant_reg_page.name') }}</label>
                                             <span><!-- {{ $name ?? 'データがありません' }} --></span>
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="">ユーザー名</label>
+                                            <label for="">{{ __('applicant_reg_page.userId') }}</label>
                                             <span><!-- {{ $userName ?? 'データがありません' }} --></span>
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="">メールアドレス</label>
+                                            <label for="">{{ __('applicant_reg_page.userName') }}</label>
                                             <span><!-- {{ $email ?? 'データがありません' }} --></span>
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="">国</label>
+                                            <label for="">{{ __('applicant_reg_page.country') }}</label>
                                             <span><!-- {{ $country ?? 'データがありません' }} --></span>
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="">年齢</label>
+                                            <label for="">{{ __('applicant_reg_page.age') }}</label>
                                             <span><!-- {{ $age ?? 'データがありません' }} --></span>
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="">日本語レベル</label>
+                                            <label
+                                                for="">{{ __('applicant_reg_page.jpnLangProficiency') }}</label>
                                             <span><!-- {{ $jpnLevel ?? 'データがありません' }} --></span>
                                         </div>
                                     </div>
@@ -55,27 +63,28 @@
                                     <!-- 右ブロック -->
                                     <div class="flex flex-col">
                                         <div class="mb-4">
-                                            <label for="">名前カナ</label>
+                                            <label for="">{{ __('applicant_reg_page.kana') }}</label>
                                             <span><!-- {{ $kana ?? 'データがありません' }} --></span>
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="">パスワード</label>
+                                            <label for="">{{ __('applicant_reg_page.passWord') }}</label>
                                             <span><!-- {{ $password ?? 'データがありません' }} --></span>
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="">言語</label>
+                                            <label for="">{{ __('applicant_reg_page.language') }}</label>
                                             <span><!-- {{ $language ?? 'データがありません' }} --></span>
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="">性別</label>
+                                            <label for="">{{ __('applicant_reg_page.gender') }}</label>
                                             <span><!-- {{ $gender ?? 'データがありません' }} --></span>
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="">ライブレッスン</label>
+                                            <label
+                                                for="">{{ __('applicant_reg_page.liveLessonClass') }}</label>
                                             <span><!-- {{ $liveLesson ?? 'データがありません' }} --></span>
                                         </div>
                                     </div>
@@ -86,36 +95,42 @@
 
                     <!-- 在留資格認定証明書交付申請書類関係 -->
                     <div class="mt-8">
-                        <h2 class="text-lg font-semibold font-color-y">在留資格認定証明書交付申請書類関係</h2>
+                        <h2 class="text-lg font-semibold font-color-y">
+                            {{ __('applicant_reg_page.COEApplicationDocuments') }}</h2>
                         <div class="flex mt-4">
                             <!-- 左ブロック -->
                             <div class="w-1/2 pr-2 flex flex-col justify-between">
                                 <div class="mb-4">
-                                    <label for="residencyCertificateApplication">在留資格認定証明書交付申請書</label>
+                                    <label
+                                        for="residencyCertificateApplication">{{ __('applicant_reg_page.residencyCertificateApplication') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="proofPhoto">証明写真</label>
+                                    <label for="proofPhoto">{{ __('applicant_reg_page.proofPhoto') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="applicationForm">アプリケーションフォーム</label>
+                                    <label for="applicationForm">{{ __('applicant_reg_page.applicationForm') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="passport">パスポート</label>
+                                    <label for="passport">{{ __('applicant_reg_page.passport') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="universityGraduationCertificate">大学修了証</label>
+                                    <label
+                                        for="universityGraduationCertificate">{{ __('applicant_reg_page.universityGraduationCertificate') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="universityCredits">大学取得単位表</label>
+                                    <label
+                                        for="universityCredits">{{ __('applicant_reg_page.universityCredits') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="previousEnrollmentCertificate">過去の在学証明書</label>
+                                    <label
+                                        for="previousEnrollmentCertificate">{{ __('applicant_reg_page.previousEnrollmentCertificate') }}</label>
                                 </div>
                             </div>
                             <!-- 右ブロック -->
                             <div class="w-1/2 pl-2 flex flex-col justify-between">
                                 <div class="mb-4 flex justify-between items-center">
-                                    <x-input-file id="residencyCertificateApplication" name="residencyCertificateApplication" required class="flex-1" />
+                                    <x-input-file id="residencyCertificateApplication"
+                                        name="residencyCertificateApplication" required class="flex-1" />
                                     <div class="flex items-center ml-2">
                                         <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
                                             <i class="fas fa-download"></i>
@@ -153,40 +168,47 @@
                                         <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
                                             <i class="fas fa-download"></i>
                                         </a>
-                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500" title="削除">
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="mb-4 flex justify-between items-center">
-                                    <x-input-file id="universityGraduationCertificate" name="universityGraduationCertificate" required class="flex-1" />
+                                    <x-input-file id="universityGraduationCertificate"
+                                        name="universityGraduationCertificate" required class="flex-1" />
                                     <div class="flex items-center ml-2">
                                         <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
                                             <i class="fas fa-download"></i>
                                         </a>
-                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500" title="削除">
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="mb-4 flex justify-between items-center">
-                                    <x-input-file id="universityCredits" name="universityCredits" required class="flex-1" />
+                                    <x-input-file id="universityCredits" name="universityCredits" required
+                                        class="flex-1" />
                                     <div class="flex items-center ml-2">
                                         <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
                                             <i class="fas fa-download"></i>
                                         </a>
-                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500" title="削除">
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="mb-4 flex justify-between items-center">
-                                    <x-input-file id="previousEnrollmentCertificate" name="previousEnrollmentCertificate" required class="flex-1" />
+                                    <x-input-file id="previousEnrollmentCertificate"
+                                        name="previousEnrollmentCertificate" required class="flex-1" />
                                     <div class="flex items-center ml-2">
                                         <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
                                             <i class="fas fa-download"></i>
                                         </a>
-                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500" title="削除">
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -197,25 +219,47 @@
 
                     <!-- ビザ申請書類関係 -->
                     <div class="mt-8">
-                        <h2 class="text-lg font-semibold font-color-y">ビザ申請書類関係</h2>
+                        <h2 class="text-lg font-semibold font-color-y">
+                            {{ __('applicant_reg_page.VisaApplicationRelatedDocuments') }}</h2>
                         <div class="flex mt-4">
                             <!-- 左ブロック -->
                             <div class="w-1/2 pr-2 flex flex-col justify-between">
                                 <div class="mb-4">
-                                    <label for="residencyCertificate">在留資格認定証明書(メール通知)</label>
+                                    <label
+                                        for="residencyCertificate">{{ __('applicant_reg_page.residencyCertificate') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="practicalTrainingNotification">実務者研修通知書(通常雇用計画書の代わり)</label>
+                                    <label
+                                        for="practicalTrainingNotification">{{ __('applicant_reg_page.practicalTrainingNotification') }}</label>
                                 </div>
                             </div>
                             <!-- 右ブロック -->
                             <div class="w-1/2 pl-2 flex flex-col justify-between">
-                                <div class="mb-4">
-                                    <x-input-file id="residencyCertificate" name="residencyCertificate" required />
+                                <div class="mb-4 flex justify-between items-center">
+                                    <x-input-file id="residencyCertificate" name="residencyCertificate" required
+                                        class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
+                                <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="practicalTrainingNotification"
-                                        name="practicalTrainingNotification" required />
+                                        name="practicalTrainingNotification" required class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -223,49 +267,107 @@
 
                     <!-- 入国後書類関係 -->
                     <div class="mt-8">
-                        <h2 class="text-lg font-semibold font-color-y">入国後書類関係</h2>
+                        <h2 class="text-lg font-semibold font-color-y">
+                            {{ __('applicant_reg_page.practicalTrainingNotification') }}</h2>
                         <div class="flex mt-4">
                             <!-- 左ブロック -->
                             <div class="w-1/2 pr-2 flex flex-col justify-between">
                                 <div class="mb-4">
-                                    <label for="residencyCard">在留カード</label>
+                                    <label for="residencyCard">{{ __('applicant_reg_page.residencyCard') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="residentCertificate">住民票</label>
+                                    <label
+                                        for="residentCertificate">{{ __('applicant_reg_page.residentCertificate') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="nationalHealthInsurance">国民健康保険証</label>
+                                    <label
+                                        for="nationalHealthInsurance">{{ __('applicant_reg_page.nationalHealthInsurance') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="pensionBook">年金手帳</label>
+                                    <label for="pensionBook">{{ __('applicant_reg_page.pensionBook') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="bankBook">通帳</label>
+                                    <label for="bankBook">{{ __('applicant_reg_page.bankBook') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="myNumberCard">マイナンバーカード</label>
+                                    <label for="myNumberCard"></label>
                                 </div>
                             </div>
                             <!-- 右ブロック -->
                             <div class="w-1/2 pl-2 flex flex-col justify-between">
-                                <div class="mb-4">
-                                    <x-input-file id="residencyCard" name="residencyCard" required />
+                                <div class="mb-4 flex justify-between items-center">
+                                    <x-input-file id="residencyCard" name="residencyCard" required class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href{{ __('applicant_reg_page.myNumberCard') }}="#"
+                                            class="ml-2 text-gray-200 hover:text-gray-500" title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
-                                    <x-input-file id="residentCertificate" name="residentCertificate" required />
+                                <div class="mb-4 flex justify-between items-center">
+                                    <x-input-file id="residentCertificate" name="residentCertificate" required
+                                        class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
-                                    <x-input-file id="nationalHealthInsurance" name="nationalHealthInsurance"
-                                        required />
+                                <div class="mb-4 flex justify-between items-center">
+                                    <x-input-file id="nationalHealthInsurance" name="nationalHealthInsurance" required
+                                        class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
-                                    <x-input-file id="pensionBook" name="pensionBook" required />
+                                <div class="mb-4 flex justify-between items-center">
+                                    <x-input-file id="pensionBook" name="pensionBook" required class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
-                                    <x-input-file id="bankBook" name="bankBook" required />
+                                <div class="mb-4 flex justify-between items-center">
+                                    <x-input-file id="bankBook" name="bankBook" required class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
-                                    <x-input-file id="myNumberCard" name="myNumberCard" required />
+                                <div class="mb-4 flex justify-between items-center">
+                                    <x-input-file id="myNumberCard" name="myNumberCard" required class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -273,85 +375,184 @@
 
                     <!-- 面接・就職書類関係 -->
                     <div class="mt-8">
-                        <h2 class="text-lg font-semibold font-color-y">面接・就職書類関係</h2>
+                        <h2 class="text-lg font-semibold font-color-y">
+                            {{ __('applicant_reg_page.interviewAndEmploymentRelatedDocuments') }}
+                        </h2>
                         <div class="flex mt-4">
                             <!-- 左ブロック -->
                             <div class="w-1/2 pr-2 flex flex-col justify-between">
                                 <div class="mb-4">
-                                    <label for="resume">履歴書</label>
+                                    <label for="resume">{{ __('applicant_reg_page.resume') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="license">運転免許証</label>
+                                    <label for="license">{{ __('applicant_reg_page.license') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="qualificationCertificate">各種資格証明書</label>
+                                    <label
+                                        for="qualificationCertificate">{{ __('applicant_reg_page.qualificationCertificate') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="trainingCompletionCertificateRinxs">研修終了証(RINXs)</label>
+                                    <label
+                                        for="trainingCompletionCertificateRinxs">{{ __('applicant_reg_page.trainingCompletionCertificateRinxs') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="trainingCompletionCertificateNexus">研修終了証(ネクサス)</label>
+                                    <label
+                                        for="trainingCompletionCertificateNexus">{{ __('applicant_reg_page.trainingCompletionCertificateNexus') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="movingOutCertificate">転出証明書</label>
+                                    <label
+                                        for="movingOutCertificate">{{ __('applicant_reg_page.movingOutCertificate') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="nationalHealthInsuranceWithdrawalCertificate">国民健康保険脱退証明書</label>
+                                    <label
+                                        for="nationalHealthInsuranceWithdrawalCertificate">{{ __('applicant_reg_page.nationalHealthInsuranceWithdrawalCertificate') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="nationalPensionWithdrawalCertificate">国民年金脱退証明書</label>
+                                    <label
+                                        for="nationalPensionWithdrawalCertificate">{{ __('applicant_reg_page.nationalPensionWithdrawalCertificate') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="movingInProcedure">転入手続(在留カード裏面)</label>
+                                    <label
+                                        for="movingInProcedure">{{ __('applicant_reg_page.movingInProcedure') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="newAddressNationalHealthInsurance">新住所での国民健康保険証</label>
+                                    <label
+                                        for="newAddressNationalHealthInsurance">{{ __('applicant_reg_page.newAddressNationalHealthInsurance') }}</label>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="newAddressNationalPensionBook">新住所での国民年金手帳</label>
+                                    <label
+                                        for="newAddressNationalPensionBook">{{ __('applicant_reg_page.newAddressNationalPensionBook') }}</label>
                                 </div>
                             </div>
                             <!-- 右ブロック -->
                             <div class="w-1/2 pl-2 flex flex-col justify-between">
-                                <div class="mb-4">
-                                    <x-input-file id="resume" name="resume" required />
+                                <div class="mb-4 flex justify-between items-center">
+                                    <x-input-file id="resume" name="resume" required class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
-                                    <x-input-file id="license" name="license" required />
+                                <div class="mb-4 flex justify-between items-center">
+                                    <x-input-file id="license" name="license" required class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
+                                <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="qualificationCertificate" name="qualificationCertificate"
-                                        required />
+                                        required class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
+                                <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="trainingCompletionCertificateRinxs"
-                                        name="trainingCompletionCertificateRinxs" required />
+                                        name="trainingCompletionCertificateRinxs" required class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
-                                    <x-input-file id="trainingCompletionCertificateNexus"
-                                        name="trainingCompletionCertificateNexus" required />
+                                <div class="mb-4 flex justify-between items-center">
+                                    <x-input-file id="movingOutCertificate" name="movingOutCertificate" required
+                                        class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
-                                    <x-input-file id="movingOutCertificate" name="movingOutCertificate" required />
-                                </div>
-                                <div class="mb-4">
+                                <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="nationalHealthInsuranceWithdrawalCertificate"
-                                        name="nationalHealthInsuranceWithdrawalCertificate" required />
+                                        name="nationalHealthInsuranceWithdrawalCertificate" required class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
+                                <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="nationalPensionWithdrawalCertificate"
-                                        name="nationalPensionWithdrawalCertificate" required />
+                                        name="nationalPensionWithdrawalCertificate" required class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
-                                    <x-input-file id="movingInProcedure" name="movingInProcedure" required />
+                                <div class="mb-4 flex justify-between items-center">
+                                    <x-input-file id="movingInProcedure" name="movingInProcedure" required
+                                        class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
+                                <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="newAddressNationalHealthInsurance"
-                                        name="newAddressNationalHealthInsurance" required />
+                                        name="newAddressNationalHealthInsurance" required class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
+                                <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="newAddressNationalPensionBook"
-                                        name="newAddressNationalPensionBook" required />
+                                        name="newAddressNationalPensionBook" required class="flex-1" />
+                                    <div class="flex items-center ml-2">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
+                                            title="削除">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
