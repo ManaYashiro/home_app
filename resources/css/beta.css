@@ -1,0 +1,28 @@
+
+/* ファイル選択ボタン */
+input[type="file"] {
+    padding: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.font-color-g {
+    color: #026e66;
+}
+
+.font-color-r {
+    color: #8d153a;
+}
+
+.font-color-y {
+    color: #eb7400;
+}
+
+.font-color-dg {
+    color: #a9a9a9;
+}
+
+.flx-column{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
