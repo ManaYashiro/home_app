@@ -37,7 +37,7 @@ home_appは、XAMPPを使用してLaravelで開発し、Node.jsとLaravel Breeze
     cd C:\xampp\htdocs
     mkdir home_app
     cd home_app
-    git clone ...
+    git clone https://github.com/ManaYashiro/home_app.git .
   ```
 
 
@@ -55,23 +55,18 @@ home_appは、XAMPPを使用してLaravelで開発し、Node.jsとLaravel Breeze
   ```
 
 
-7. **ファイルの書き換え**
-  ```bash
-    npm run dev
-    cp env.example .env
-  ```
 
-8. **ファイルの書き換え**
+7. **ファイルの書き換え**
     DBにdetabase utf8mb4_general_ciを作成
 
 
-9. **マイグレーションの実行**
+8. **マイグレーションの実行**
   ```bash
     php artisan migrate
   ```
 
 
-10. **laravel app key && storage link**
+9. **laravel app key && storage link**
   ```bash
     php artisan key:generate
     php artisan storage:link
@@ -84,7 +79,7 @@ home_appは、XAMPPを使用してLaravelで開発し、Node.jsとLaravel Breeze
   ```
 
 
-11. **apache virtualhost**
+10. **apache virtualhost**
   C:\xampp\apache\conf\extraのhttpd-vhosts.confに追記
   ```httpd-vhosts.conf
     # HOME APP
@@ -104,7 +99,7 @@ home_appは、XAMPPを使用してLaravelで開発し、Node.jsとLaravel Breeze
   ```
 
 
-12. **windows hosts fileを設定**
+11. **windows hosts fileを設定**
 
   https://help.coreserver.jp/manual/hosts-win/　参照
 
@@ -115,7 +110,7 @@ home_appは、XAMPPを使用してLaravelで開発し、Node.jsとLaravel Breeze
   ```
 
 
-13. **Apacheの再起動**
+12. **Apacheの再起動**
     仮想ホスト設定を反映させるため、Apacheを再起動します。
 
 
