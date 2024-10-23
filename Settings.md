@@ -51,7 +51,7 @@ home_appは、XAMPPを使用してLaravelで開発し、Node.jsとLaravel Breeze
 6. **依存関係のビルド**
   ```bash
     npm run dev
-    cp env.example .env
+    cp .env.example .env
   ```
 
 
