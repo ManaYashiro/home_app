@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\ApplicantsController;
+use App\Http\Controllers\ApplicantsRegstrationController;
 use App\Http\Controllers\CohortController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResidencyCertificateAppController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -17,17 +20,16 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::get('/cohort_registration', function () {
         return view('cohort_reg');
     });
-    Route::get('/certificate_app_registration', function () {
-        return view('certificate_app_reg');
-    });
-    Route::get('/applicant_page', function () {
-        return view('applicant_page');
-    });
     Route::get('/applicant_registration_page', function () {
         return view('applicant_reg_page');
     });
 
     Route::post('/cohorts', [CohortController::class, 'store'])->name('cohorts.store');
+    Route::post('/residency_certificate_applicants', [ResidencyCertificateAppController::class, 'store'])->name('residencyCertificateApplicants.store');
+    Route::get('/certificate_app_registration', [ResidencyCertificateAppController::class, 'index'])->name('residencyCertificateApplicants.index');
+    Route::get('/applicant_page', [ApplicantsController::class, 'index'])->name('applicantPage.index');
+    Route::get('/applicant_registration_page/{id}', [ApplicantsRegstrationController::class, 'index'])->name('applicant.registration');
+
 
     Route::get('/dashboard', function () {
         return view('dashboard');
