@@ -57,12 +57,10 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::middleware('guest')->group(function () {
-    Route::get('/', function () {
-        if (Auth::check()) {
-            return redirect()->route('menu');
-        }
-        return view('auth.login');
-    });
+Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect()->route('menu');
+    }
+    return view('auth.login');
 });
 require __DIR__ . '/auth.php';
