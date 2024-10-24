@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Cohort; // Cohortモデルを使う場合
+use App\Models\Cohort;
 
 class CohortController extends Controller
 {
@@ -11,18 +11,18 @@ class CohortController extends Controller
     {
         // バリデーション
         $validatedData = $request->validate([
-            'cohortName' => 'required|string|max:255',
-            'appCeoDate' => 'required|date',
-            'appVisaDate' => 'required|date',
-            'JpnLangStudyStartDate' => 'required|date',
-            'JpnLangStudyEndDate' => 'required|date',
-            'dateOfEntry' => 'required|date',
+            'cohort_name' => 'required|string|max:255',
+            'app_ceo_date' => 'required|date',
+            'app_visa_date' => 'nullable|date',
+            'jpn_lang_study_start_date' => 'nullable|date',
+            'jpn_lang_study_end_date' => 'nullable|date',
+            'date_of_entry' => 'nullable|date',
         ]);
 
-        // Cohort モデルが存在する場合はデータ保存
+        // データ保存
         Cohort::create($validatedData);
 
         // 成功メッセージ付きでリダイレクト
-        return redirect()->route('cohorts.index')->with('success', '期登録が完了しました');
+        return redirect('/cohort_registration')->with('success', '期登録が完了しました');
     }
 }

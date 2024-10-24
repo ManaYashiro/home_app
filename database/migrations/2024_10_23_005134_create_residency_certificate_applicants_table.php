@@ -49,7 +49,7 @@ class CreateResidencyCertificateApplicantsTable extends Migration
             $table->string('japanese_level')
                 ->comment('日本語レベル'); // Japanese Level
 
-            $table->boolean('live_class_lesson')->default(false)
+            $table->string('live_class_lesson')
                 ->comment('ライブクラスレッスン'); // Live Class Lesson
 
             $table->timestamps();
