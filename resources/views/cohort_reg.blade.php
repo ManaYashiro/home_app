@@ -27,7 +27,7 @@
                     <form method="POST" action="{{ route('cohorts.store') }}">
                         @csrf <!-- CSRFトークンの追加 -->
                         <div>
-                            <x-input-label for="cohort_name" :value="__('cohort_reg.cohortRegistration')" />
+                            <x-input-label for="cohort_name" :value="__('cohort_reg.cohort_name')" />
                             <x-text-input id="cohort_name" class="block mt-1 w-full" type="text" name="cohort_name"
                                 :value="old('cohort_name')" autofocus />
                             <x-input-error :messages="$errors->get('cohort_name')" class="mt-2" />
