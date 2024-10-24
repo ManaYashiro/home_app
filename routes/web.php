@@ -12,11 +12,11 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
     Route::get('/', function () {
-        return view('welcome');
+        return view('auth.login');
     });
     Route::get('/menu', function () {
         return view('menu');
-    });
+    })->name('menu');
     Route::get('/cohort_registration', function () {
         return view('cohort_reg');
     });
