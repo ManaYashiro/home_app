@@ -23,6 +23,6 @@ class CohortController extends Controller
         Cohort::create($validatedData);
 
         // 成功メッセージ付きでリダイレクト
-        return redirect()->route('cohorts.index')->with('success', '期登録が完了しました！');
+        return redirect()->route('cohorts.index')->with('success', '期登録が完了しました');
     }
 }
