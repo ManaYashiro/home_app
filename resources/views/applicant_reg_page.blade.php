@@ -24,68 +24,76 @@
                                     <!-- 左ブロック -->
                                     <div class="flex flex-col">
                                         <div class="mb-4">
-                                            <label for="">{{ __('applicant_reg_page.userId') }}</label>
-                                            <span><!-- {{ $userId ?? 'データがありません' }} --></span>
+                                            <label
+                                                class="w-32 inline-block">{{ __('applicant_reg_page.userId') }}</label>
+                                            <x-data-display :value="$userId ?? 'データがありません'" />
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="">{{ __('applicant_reg_page.name') }}</label>
-                                            <span><!-- {{ $name ?? 'データがありません' }} --></span>
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label for="">{{ __('applicant_reg_page.userId') }}</label>
-                                            <span><!-- {{ $userName ?? 'データがありません' }} --></span>
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label for="">{{ __('applicant_reg_page.userName') }}</label>
-                                            <span><!-- {{ $email ?? 'データがありません' }} --></span>
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label for="">{{ __('applicant_reg_page.country') }}</label>
-                                            <span><!-- {{ $country ?? 'データがありません' }} --></span>
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label for="">{{ __('applicant_reg_page.age') }}</label>
-                                            <span><!-- {{ $age ?? 'データがありません' }} --></span>
+                                            <label class="w-32 inline-block">{{ __('applicant_reg_page.name') }}</label>
+                                            <x-data-display :value="$name ?? 'データがありません'" />
                                         </div>
 
                                         <div class="mb-4">
                                             <label
-                                                for="">{{ __('applicant_reg_page.jpnLangProficiency') }}</label>
-                                            <span><!-- {{ $jpnLevel ?? 'データがありません' }} --></span>
+                                                class="w-32 inline-block">{{ __('applicant_reg_page.userName') }}</label>
+                                            <x-data-display :value="$username ?? 'データがありません'" />
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label
+                                                class="w-32 inline-block">{{ __('applicant_reg_page.mailAddress') }}</label>
+                                            <x-data-display :value="$email ?? 'データがありません'" />
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label
+                                                class="w-32 inline-block">{{ __('applicant_reg_page.country') }}</label>
+                                            <x-data-display :value="$country ?? 'データがありません'" />
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label class="w-32 inline-block">{{ __('applicant_reg_page.age') }}</label>
+                                            <x-data-display :value="$age ?? 'データがありません'" />
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label
+                                                class="w-32 inline-block">{{ __('applicant_reg_page.jpnLangProficiency') }}</label>
+                                            <x-data-display :value="$japanese_level ?? 'データがありません'" />
                                         </div>
                                     </div>
 
                                     <!-- 右ブロック -->
                                     <div class="flex flex-col">
                                         <div class="mb-4">
-                                            <label for="">{{ __('applicant_reg_page.kana') }}</label>
-                                            <span><!-- {{ $kana ?? 'データがありません' }} --></span>
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label for="">{{ __('applicant_reg_page.passWord') }}</label>
-                                            <span><!-- {{ $password ?? 'データがありません' }} --></span>
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label for="">{{ __('applicant_reg_page.language') }}</label>
-                                            <span><!-- {{ $language ?? 'データがありません' }} --></span>
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label for="">{{ __('applicant_reg_page.gender') }}</label>
-                                            <span><!-- {{ $gender ?? 'データがありません' }} --></span>
+                                            <label
+                                                class="w-32 inline-block">{{ __('applicant_reg_page.kana') }}</label>
+                                            <x-data-display :value="$name_kana ?? 'データがありません'" />
                                         </div>
 
                                         <div class="mb-4">
                                             <label
-                                                for="">{{ __('applicant_reg_page.liveLessonClass') }}</label>
-                                            <span><!-- {{ $liveLesson ?? 'データがありません' }} --></span>
+                                                class="w-32 inline-block">{{ __('applicant_reg_page.passWord') }}</label>
+                                            <x-data-display :value="$password ?? 'データがありません'" />
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label
+                                                class="w-32 inline-block">{{ __('applicant_reg_page.language') }}</label>
+                                            <x-data-display :value="$language ?? 'データがありません'" />
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label
+                                                class="w-32 inline-block">{{ __('applicant_reg_page.gender') }}</label>
+                                            <x-data-display :value="$gender ?? 'データがありません'" />
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label
+                                                class="w-32 inline-block">{{ __('applicant_reg_page.liveLessonClass') }}</label>
+                                            <x-data-display :value="$live_class_lesson ?? 'データがありません'" />
                                         </div>
                                     </div>
                                 </div>
@@ -132,10 +140,10 @@
                                     <x-input-file id="residencyCertificateApplication"
                                         name="residencyCertificateApplication" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
-                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500" title="削除">
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -143,10 +151,10 @@
                                 <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="proofPhoto" name="proofPhoto" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
-                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500" title="削除">
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -154,10 +162,10 @@
                                 <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="applicationForm" name="applicationForm" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
-                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500" title="削除">
+                                        <a href="#" class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -165,11 +173,11 @@
                                 <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="passport" name="passport" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -178,11 +186,11 @@
                                     <x-input-file id="universityGraduationCertificate"
                                         name="universityGraduationCertificate" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -191,11 +199,11 @@
                                     <x-input-file id="universityCredits" name="universityCredits" required
                                         class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -204,11 +212,11 @@
                                     <x-input-file id="previousEnrollmentCertificate"
                                         name="previousEnrollmentCertificate" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -239,11 +247,11 @@
                                     <x-input-file id="residencyCertificate" name="residencyCertificate" required
                                         class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -252,11 +260,11 @@
                                     <x-input-file id="practicalTrainingNotification"
                                         name="practicalTrainingNotification" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -298,11 +306,11 @@
                                 <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="residencyCard" name="residencyCard" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href{{ __('applicant_reg_page.myNumberCard') }}="#"
-                                            class="ml-2 text-gray-200 hover:text-gray-500" title="削除">
+                                            class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -311,11 +319,11 @@
                                     <x-input-file id="residentCertificate" name="residentCertificate" required
                                         class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -324,11 +332,11 @@
                                     <x-input-file id="nationalHealthInsurance" name="nationalHealthInsurance" required
                                         class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -336,11 +344,11 @@
                                 <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="pensionBook" name="pensionBook" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -348,11 +356,11 @@
                                 <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="bankBook" name="bankBook" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -360,11 +368,11 @@
                                 <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="myNumberCard" name="myNumberCard" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -429,11 +437,11 @@
                                 <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="resume" name="resume" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -441,11 +449,11 @@
                                 <div class="mb-4 flex justify-between items-center">
                                     <x-input-file id="license" name="license" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -454,11 +462,11 @@
                                     <x-input-file id="qualificationCertificate" name="qualificationCertificate"
                                         required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -467,11 +475,11 @@
                                     <x-input-file id="trainingCompletionCertificateRinxs"
                                         name="trainingCompletionCertificateRinxs" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -480,11 +488,11 @@
                                     <x-input-file id="movingOutCertificate" name="movingOutCertificate" required
                                         class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -493,11 +501,11 @@
                                     <x-input-file id="nationalHealthInsuranceWithdrawalCertificate"
                                         name="nationalHealthInsuranceWithdrawalCertificate" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -506,11 +514,11 @@
                                     <x-input-file id="nationalPensionWithdrawalCertificate"
                                         name="nationalPensionWithdrawalCertificate" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -519,11 +527,11 @@
                                     <x-input-file id="movingInProcedure" name="movingInProcedure" required
                                         class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -532,11 +540,11 @@
                                     <x-input-file id="newAddressNationalHealthInsurance"
                                         name="newAddressNationalHealthInsurance" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
@@ -545,11 +553,11 @@
                                     <x-input-file id="newAddressNationalPensionBook"
                                         name="newAddressNationalPensionBook" required class="flex-1" />
                                     <div class="flex items-center ml-2">
-                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="ダウンロード">
+                                        <a href="#" class="text-gray-200 hover:text-gray-500" title="Download">
                                             <i class="fas fa-download"></i>
                                         </a>
                                         <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                            title="削除">
+                                            title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
