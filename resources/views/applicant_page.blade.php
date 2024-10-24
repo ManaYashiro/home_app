@@ -56,7 +56,7 @@
                             <tbody>
                                 @foreach ($users as $user)
                                     <tr onclick="window.location='{{ route('applicant.registration', $user->id) }}'"
-                                        style="cursor: pointer;">
+                                        style="cursor: pointer;" class="hover:bg-gray-100">
                                         <td class="border border-gray-300 p-4">{{ $user->username }}</td>
                                         <td class="border border-gray-300 p-4">{{ $user->name }}</td>
                                         <td class="border border-gray-300 p-4">{{ $user->name_kana }}</td>

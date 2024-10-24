@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicantsController;
-use App\Http\Controllers\ApplicantsRegstrationController;
+use App\Http\Controllers\ApplicantsRegistrationController;
 use App\Http\Controllers\CohortController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResidencyCertificateAppController;
@@ -15,17 +15,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/cohort_registration', function () {
             return view('cohort_reg');
         });
-        Route::get('/applicant_registration_page', function () {
-            return view('applicant_reg_page');
-        });
-
         Route::post('/cohorts', [CohortController::class, 'store'])->name('cohorts.store');
         Route::post('/residency_certificate_applicants', [ResidencyCertificateAppController::class, 'store'])->name('residencyCertificateApplicants.store');
         Route::get('/certificate_app_registration', [ResidencyCertificateAppController::class, 'index'])->name('residencyCertificateApplicants.index');
         Route::get('/applicant_page', [ApplicantsController::class, 'index'])->name('applicantPage.index');
-        Route::get('/applicant_registration_page/{id}', [ApplicantsRegstrationController::class, 'index'])->name('applicant.registration');
-
-
+        Route::get('/applicant_registration_page/{id}', [ApplicantsRegistrationController::class, 'index'])->name('applicant.registration');
+        Route::post('/applicant_registration_page/{id}', [ApplicantsRegistrationController::class, 'store'])->name('applicants.store');
         Route::get('/menu', function () {
             return view('menu');
         })->middleware(['auth'])->name('menu');
