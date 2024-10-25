@@ -10,3 +10,4 @@ import $ from 'jquery';
 window.$ = $;
 
 import './fadeout.js';
+import './applicantRegPage.js';

@@ -141,12 +141,11 @@
                                         <x-input-file id="residency_certificate_application"
                                             name="residency_certificate_application" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="residency_certificate_application_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
-                                            </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            </a> <a href="#" id="residency_certificate_application_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -154,12 +153,12 @@
                                     <div class="mb-4 flex justify-between items-center">
                                         <x-input-file id="proof_photo" name="proof_photo" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="proof_photo_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="proof_photo_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -167,12 +166,12 @@
                                     <div class="mb-4 flex justify-between items-center">
                                         <x-input-file id="application_form" name="application_form" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="application_form_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="application_form_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -180,12 +179,12 @@
                                     <div class="mb-4 flex justify-between items-center">
                                         <x-input-file id="passport" name="passport" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="passport_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="passport_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -194,12 +193,12 @@
                                         <x-input-file id="university_graduation_certificate"
                                             name="university_graduation_certificate" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="university_graduation_certificate_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="university_graduation_certificate_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -208,12 +207,12 @@
                                         <x-input-file id="university_credits" name="university_credits"
                                             class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="university_credits_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="university_credits_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -222,12 +221,12 @@
                                         <x-input-file id="previous_enrollment_certificate"
                                             name="previous_enrollment_certificate" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="previous_enrollment_certificate_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="previous_enrollment_certificate_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -258,12 +257,12 @@
                                         <x-input-file id="residency_certificate" name="residency_certificate"
                                             class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="residency_certificate_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="residency_certificate_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -272,12 +271,12 @@
                                         <x-input-file id="practical_training_notification"
                                             name="practical_training_notification" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="practical_training_notification_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="practical_training_notification_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -312,7 +311,8 @@
                                         <label for="bank_book">{{ __('applicant_reg_page.bank_book') }}</label>
                                     </div>
                                     <div class="mb-4">
-                                        <label for="my_number_card"></label>
+                                        <label
+                                            for="my_number_card">{{ __('applicant_reg_page.my_number_card') }}</label>
                                     </div>
                                 </div>
                                 <!-- 右ブロック -->
@@ -320,11 +320,11 @@
                                     <div class="mb-4 flex justify-between items-center">
                                         <x-input-file id="residency_card" name="residency_card" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="residency_card_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href{{ __('applicant_reg_page.my_number_card') }}="#"
+                                            <a href="#" id="residency_card_resetFile"
                                                 class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
@@ -334,12 +334,12 @@
                                         <x-input-file id="resident_certificate" name="resident_certificate"
                                             class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="resident_certificate_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="resident_certificate_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -348,12 +348,12 @@
                                         <x-input-file id="national_health_insurance" name="national_health_insurance"
                                             class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="national_health_insurance_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="national_health_insurance_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -361,12 +361,12 @@
                                     <div class="mb-4 flex justify-between items-center">
                                         <x-input-file id="pension_book" name="pension_book" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="pension_book_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="pension_book_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -374,12 +374,12 @@
                                     <div class="mb-4 flex justify-between items-center">
                                         <x-input-file id="bank_book" name="bank_book" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="bank_book_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="bank_book_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -387,12 +387,12 @@
                                     <div class="mb-4 flex justify-between items-center">
                                         <x-input-file id="my_number_card" name="my_number_card" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="my_number_card_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="my_number_card_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -457,12 +457,12 @@
                                     <div class="mb-4 flex justify-between items-center">
                                         <x-input-file id="resume" name="resume" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="resume_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="resume_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -470,12 +470,12 @@
                                     <div class="mb-4 flex justify-between items-center">
                                         <x-input-file id="license" name="license" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="license_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="license_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -484,12 +484,12 @@
                                         <x-input-file id="qualification_certificate" name="qualification_certificate"
                                             class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="qualification_certificate_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="qualification_certificate_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -498,12 +498,12 @@
                                         <x-input-file id="training_completion_certificate_rinxs"
                                             name="training_completion_certificate_rinxs" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="training_completion_certificate_rinxs_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="training_completion_certificate_rinxs_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -512,12 +512,12 @@
                                         <x-input-file id="moving_out_certificate" name="moving_out_certificate"
                                             class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="moving_out_certificate_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="moving_out_certificate_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -526,12 +526,14 @@
                                         <x-input-file id="national_health_insurance_withdrawal_certificate"
                                             name="national_health_insurance_withdrawal_certificate" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#"
+                                                id="national_health_insurance_withdrawal_certificate_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#"
+                                                id="national_health_insurance_withdrawal_certificate_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -540,12 +542,12 @@
                                         <x-input-file id="national_pension_withdrawal_certificate	"
                                             name="national_pension_withdrawal_certificate	" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="national_pension_withdrawal_certificate_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="national_pension_withdrawal_certificate_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -554,12 +556,12 @@
                                         <x-input-file id="moving_in_procedure" name="moving_in_procedure"
                                             class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="moving_in_procedure_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="moving_in_procedure_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -568,12 +570,12 @@
                                         <x-input-file id="new_address_national_health_insurance"
                                             name="new_address_national_health_insurance" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="new_address_national_health_insurance_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="new_address_national_health_insurance_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -582,12 +584,12 @@
                                         <x-input-file id="new_address_national_pension_book"
                                             name="new_address_national_pension_book" class="flex-1" />
                                         <div class="flex items-center ml-2">
-                                            <a href="#" class="text-gray-200 hover:text-gray-500"
-                                                title="Download">
+                                            <a href="#" id="new_address_national_pension_book_download"
+                                                class="text-gray-200 hover:text-gray-500" title="Download">
                                                 <i class="fas fa-download"></i>
                                             </a>
-                                            <a href="#" class="ml-2 text-gray-200 hover:text-gray-500"
-                                                title="Delete">
+                                            <a href="#" id="new_address_national_pension_book_resetFile"
+                                                class="ml-2 text-gray-200 hover:text-gray-500" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
