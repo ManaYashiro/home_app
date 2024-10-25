@@ -5,141 +5,125 @@ namespace App\Http\Controllers;
 use App\Models\Applicants;
 use Illuminate\Http\Request;
 use App\Models\ResidencyCertificateApplicant;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class ApplicantsRegistrationController extends Controller
 {
+    private $uploadsFolder = "";
+
+    public function __construct()
+    {
+        $this->uploadsFolder = Applicants::UPLOAD_FOLDER;
+    }
+
     public function index($id)
     {
         // IDに基づいてユーザーを取得
-        $user = ResidencyCertificateApplicant::find($id);
+        $residentApplicant = ResidencyCertificateApplicant::join('applicants', 'residency_certificate_applicants.id', '=', 'applicants.user_id')
+            ->where('residency_certificate_applicants.id', $id)
+            ->first();
+
 
         // ユーザーが見つからない場合は404エラーを返す
-        if (!$user) {
+        if (!$residentApplicant) {
             abort(404);
         }
         // ビューにデータを渡す
         return view('applicant_reg_page', [
             'id' => $id,
-            'userId' => $user->id,
-            'name' => $user->name,
-            'name_kana' => $user->name_kana,
-            'username' => $user->username,
-            'password' => $user->password,
-            'email' => $user->email,
-            'country' => $user->country,
-            'language' => $user->language,
-            'age' => $user->age,
-            'gender' => $user->gender,
-            'japanese_level' => $user->japanese_level,
-            'live_class_lesson' => $user->live_class_lesson,
+            'residentApplicant' => $residentApplicant,
+            'upload' => $this->uploadsFolder,
         ]);
     }
 
-    public function store(Request $request, $id)
+    public function store(Request $request,  $id)
     {
         // バリデーション
         $request->validate([
             'residency_certificate_application' => 'nullable|file|mimes:pdf,jpg,png',
-            'proof_photo' => 'nullable|file|mimes:jpg,png',
-            'application_form' => 'nullable|file|mimes:pdf',
+            'proof_photo' => 'nullable|file|mimes:pdf,jpg,png',
+            'application_form' => 'nullable|file|mimes:pdf,jpg,png',
             'passport' => 'nullable|file|mimes:pdf,jpg,png',
             'university_graduation_certificate' => 'nullable|file|mimes:pdf,jpg,png',
             'university_credits' => 'nullable|file|mimes:pdf,jpg,png',
             'previous_enrollment_certificate' => 'nullable|file|mimes:pdf,jpg,png',
             'residency_certificate' => 'nullable|file|mimes:pdf,jpg,png',
             'practical_training_notification' => 'nullable|file|mimes:pdf,jpg,png',
+            'residency_card' => 'nullable|file|mimes:pdf,jpg,png',
+            'resident_certificate' => 'nullable|file|mimes:pdf,jpg,png',
+            'national_health_insurance' => 'nullable|file|mimes:pdf,jpg,png',
+            'pension_book' => 'nullable|file|mimes:pdf,jpg,png',
+            'bank_book' => 'nullable|file|mimes:pdf,jpg,png',
+            'my_number_card' => 'nullable|file|mimes:pdf,jpg,png',
+            'resume' => 'nullable|file|mimes:pdf,jpg,png',
+            'license' => 'nullable|file|mimes:pdf,jpg,png',
+            'qualification_certificate' => 'nullable|file|mimes:pdf,jpg,png',
+            'training_completion_certificate_rinxs' => 'nullable|file|mimes:pdf,jpg,png',
+            'training_completion_certificate_nexus' => 'nullable|file|mimes:pdf,jpg,png',
+            'moving_out_certificate' => 'nullable|file|mimes:pdf,jpg,png',
+            'national_health_insurance_withdrawal_certificate' => 'nullable|file|mimes:pdf,jpg,png',
+            'national_pension_withdrawal_certificate' => 'nullable|file|mimes:pdf,jpg,png',
+            'moving_in_procedure' => 'nullable|file|mimes:pdf,jpg,png',
+            'new_address_national_health_insurance' => 'nullable|file|mimes:pdf,jpg,png',
+            'new_address_national_pension_book' => 'nullable|file|mimes:pdf,jpg,png',
         ]);
 
-        // 新しいレコードを作成
-        $applicant = new Applicants();
+        $fileArray = [
+            'residency_certificate_application',
+            'proof_photo',
+            'application_form',
+            'passport',
+            'university_graduation_certificate',
+            'university_credits',
+            'previous_enrollment_certificate',
+            'residency_certificate',
+            'practical_training_notification',
+            'residency_card',
+            'resident_certificate',
+            'national_health_insurance',
+            'pension_book',
+            'bank_book',
+            'my_number_card',
+            'resume',
+            'license',
+            'qualification_certificate',
+            'training_completion_certificate_rinxs',
+            'training_completion_certificate_nexus',
+            'moving_out_certificate',
+            'national_health_insurance_withdrawal_certificate',
+            'national_pension_withdrawal_certificate',
+            'moving_in_procedure',
+            'new_address_national_health_insurance',
+            'new_address_national_pension_book',
+        ];
 
-        // アップロードされたファイルを保存
-        if ($request->hasFile('residency_certificate_application')) {
-            $applicant->residency_certificate_application = $request->file('residency_certificate_application')->store('documents');
-        }
-        if ($request->hasFile('proof_photo')) {
-            $applicant->proof_photo = $request->file('proof_photo')->store('documents');
-        }
-        if ($request->hasFile('application_form')) {
-            $applicant->application_form = $request->file('application_form')->store('documents');
-        }
-        if ($request->hasFile('passport')) {
-            $applicant->passport = $request->file('passport')->store('documents');
-        }
-        if ($request->hasFile('university_graduation_certificate')) {
-            $applicant->university_graduation_certificate = $request->file('university_graduation_certificate')->store('documents');
-        }
-        if ($request->hasFile('university_credits')) {
-            $applicant->university_credits = $request->file('university_credits')->store('documents');
-        }
-        if ($request->hasFile('previous_enrollment_certificate')) {
-            $applicant->previous_enrollment_certificate = $request->file('previous_enrollment_certificate')->store('documents');
-        }
+        // IDに基づいてユーザーを取得
+        $applicant = Applicants::where('user_id', $id)->first();
 
-        if ($request->hasFile('residency_certificate')) {
-            $applicant->residency_certificate = $request->file('residency_certificate')->store('documents');
-        }
-        if ($request->hasFile('practical_training_notification')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-
-        if ($request->hasFile('residency_card')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('resident_certificate')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('national_health_insurance')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('pension_book')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('bank_book')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('my_number_card')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
+        foreach ($fileArray as $key) {
+            $data[$key] = $this->fileUpload($request, $key);
         }
 
-        if ($request->hasFile('resume')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('license')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('qualification_certificate')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('training_completion_certificate_rinxs')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('training_completion_certificate_nexus')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('moving_out_certificate')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('national_health_insurance_withdrawal_certificate')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('national_pension_withdrawal_certificate')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('moving_in_procedure')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('new_address_national_health_insurance')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
-        if ($request->hasFile('new_address_national_pension_book')) {
-            $applicant->practical_training_notification = $request->file('practical_training_notification')->store('documents');
-        }
+        $data['user_id'] = $id;
 
-        // データを保存
-        $applicant->save();
-
+        if ($applicant) {
+            $applicant->update($data);
+        } else {
+            Applicants::create($data);
+        }
         // リダイレクト
         return redirect()->route('applicant.registration', $id)->with('success', '申請が完了しました');
+    }
+
+    public function fileUpload($request, $key)
+    {
+        if ($request->hasFile($key)) {
+            $file = $request->file($key);
+            $file_extension = $file->extension();
+            $file_mime_type = $file->getClientMimeType();
+            $original_file_name = $file->getClientOriginalName();
+            return Storage::disk('public')->putFileAs($this->uploadsFolder, $file, $original_file_name);
+        }
     }
 }
