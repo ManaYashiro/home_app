@@ -20,11 +20,9 @@ class ApplicantsRegistrationController extends Controller
     public function index($id)
     {
         // IDに基づいてユーザーを取得
-        $residentApplicant = ResidencyCertificateApplicant::join('applicants', 'residency_certificate_applicants.id', '=', 'applicants.user_id')
+        $residentApplicant = ResidencyCertificateApplicant::leftJoin('applicants', 'residency_certificate_applicants.id', '=', 'applicants.user_id')
             ->where('residency_certificate_applicants.id', $id)
             ->first();
-
-
         // ユーザーが見つからない場合は404エラーを返す
         if (!$residentApplicant) {
             abort(404);
@@ -97,14 +95,15 @@ class ApplicantsRegistrationController extends Controller
             'new_address_national_health_insurance',
             'new_address_national_pension_book',
         ];
-
         // IDに基づいてユーザーを取得
         $applicant = Applicants::where('user_id', $id)->first();
 
         foreach ($fileArray as $key) {
-            $data[$key] = $this->fileUpload($request, $key);
+            $path = $this->fileUpload($request, $key);
+            if ($path) {
+                $data[$key] = $path;
+            }
         }
-
         $data['user_id'] = $id;
 
         if ($applicant) {
@@ -125,5 +124,7 @@ class ApplicantsRegistrationController extends Controller
             $original_file_name = $file->getClientOriginalName();
             return Storage::disk('public')->putFileAs($this->uploadsFolder, $file, $original_file_name);
         }
+
+        return null;
     }
 }
