@@ -11,3 +11,4 @@ window.$ = $;
 
 import './fadeout.js';
 import './cohort.js';
+import './applicantRegPage.js';
