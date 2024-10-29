@@ -77,7 +77,7 @@
                             <x-input-label for="country" :value="__('certificate_app_reg.country')" />
                             <x-select id="country" class="block mt-1 w-full" name="country" :options="[
                                 '' => __('certificate_app_reg.select'),
-                                'srilanka' => __('certificate_app_reg.srilanka'),
+                                '1' => __('certificate_app_reg.srilanka'),
                             ]" />
                             <x-input-error :messages="$errors->get('country')" class="mt-2" />
                         </div>
@@ -86,7 +86,7 @@
                             <x-input-label for="language" :value="__('certificate_app_reg.language')" />
                             <x-select id="language" class="block mt-1 w-full" name="language" :options="[
                                 '' => __('certificate_app_reg.select'),
-                                'srilanka' => __('certificate_app_reg.srilanka'),
+                                '1' => __('certificate_app_reg.srilanka'),
                             ]" />
                             <x-input-error :messages="$errors->get('language')" class="mt-2" />
                         </div>
@@ -102,9 +102,9 @@
                             <x-input-label for="gender" :value="__('certificate_app_reg.gender')" />
                             <x-select id="gender" class="block mt-1 w-full" name="gender" :options="[
                                 '' => __('certificate_app_reg.select'),
-                                'male' => __('certificate_app_reg.male'),
-                                'female' => __('certificate_app_reg.female'),
-                                'other' => __('certificate_app_reg.other'),
+                                '1' => __('certificate_app_reg.male'),
+                                '2' => __('certificate_app_reg.female'),
+                                '3' => __('certificate_app_reg.other'),
                             ]" />
                             <x-input-error :messages="$errors->get('gender')" class="mt-2" />
                         </div>

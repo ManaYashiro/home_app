@@ -47,7 +47,9 @@
                                         <div class="mb-4">
                                             <label
                                                 class="w-32 inline-block">{{ __('applicant_reg_page.country') }}</label>
-                                            <x-data-display :value="$residentApplicant->country ?? ''" />
+                                            @if ($residentApplicant->country == 1)
+                                                <x-data-display :value="__('applicant_reg_page.country_srilanka')" />
+                                            @endif
                                         </div>
 
                                         <div class="mb-4">
@@ -79,13 +81,21 @@
                                         <div class="mb-4">
                                             <label
                                                 class="w-32 inline-block">{{ __('applicant_reg_page.language') }}</label>
-                                            <x-data-display :value="$residentApplicant->language ?? ''" />
+                                            @if ($residentApplicant->language == 1)
+                                                <x-data-display :value="__('applicant_reg_page.country_srilanka')" />
+                                            @endif
                                         </div>
 
                                         <div class="mb-4">
                                             <label
                                                 class="w-32 inline-block">{{ __('applicant_reg_page.gender') }}</label>
-                                            <x-data-display :value="$residentApplicant->gender ?? ''" />
+                                            @if ($residentApplicant->gender == 1)
+                                                <x-data-display :value="__('applicant_reg_page.gender_male')" />
+                                            @elseif ($residentApplicant->gender == 2)
+                                                <x-data-display :value="__('applicant_reg_page.gender_female')" />
+                                            @elseif ($residentApplicant->gender == 3)
+                                                <x-data-display :value="__('applicant_reg_page.gender_other')" />
+                                            @endif
                                         </div>
 
                                         <div class="mb-4">

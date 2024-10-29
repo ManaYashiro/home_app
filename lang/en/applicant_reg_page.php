@@ -13,7 +13,10 @@ return [
     'gender' => 'Gender',
     'jpn_lang_proficiency' => 'Japanese Level',
     'live_lesson_class' => 'Live Class Lesson',
-
+    'country_srilanka' => 'Sri lanka',
+    'gender_male' => 'Male',
+    'gender_female' => 'Female',
+    'gender_other' => 'Other',
 
     'COE_application_documents' => 'Documents related to Certificate of Eligibility application',
     'residency_certificate_application' => 'Application for Certificate of Eligibility',

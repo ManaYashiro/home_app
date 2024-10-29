@@ -24,7 +24,7 @@ class CreateResidencyCertificateApplicantsTable extends Migration
             $table->string('country')->nullable()->comment('国'); // Country
             $table->string('language')->nullable()->comment('言語'); // Language
             $table->integer('age')->nullable()->comment('年齢'); // Age
-            $table->enum('gender', ['male', 'female', 'other'])->nullable()->comment('性別'); // Gender
+            $table->string('gender')->nullable()->comment('性別'); // Gender
             $table->string('japanese_level')->nullable()->comment('日本語レベル'); // Japanese Level
             $table->string('live_class_lesson')->nullable()->comment('ライブクラスレッスン'); // Live Class Lesson
             $table->timestamps();
