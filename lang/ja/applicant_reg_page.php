@@ -13,6 +13,10 @@ return [
     'gender' => '性別',
     'jpn_lang_proficiency' => '日本語レベル',
     'live_lesson_class' => 'ライブレッスンクラス',
+    'country_srilanka' => 'スリランカ',
+    'gender_male' => '男性',
+    'gender_female' => '女性',
+    'gender_other' => 'その他',
 
     'COE_application_documents' => '在留資格認定証明書交付申請書類関係',
     'residency_certificate_application' => '在留資格認定証明書交付申請書',

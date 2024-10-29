@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cohort;
-use App\Models\ResidencyCertificateApplicant;
 
 class CohortController extends Controller
 {
