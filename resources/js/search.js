@@ -37,8 +37,13 @@ $(function() {
                 username: username
             },
             success: function(response) {
-                if (response) {
+                $('#errorMessages').empty();
+                $('#errorMessages2').empty();
+                $('#errorMessages3').empty();
+                $('#errorMessages4').empty();
+                $('#errorMessages5').empty();
 
+                if (response) {
                     $('#cohort_name').val(response.cohort_name);
                     $('#name').val(response.name);
                     $('#name_kana').val(response.name_kana);

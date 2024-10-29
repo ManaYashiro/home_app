@@ -35,21 +35,21 @@
                             @endphp
                             <x-input-label for="cohort_name" :value="__('certificate_app_reg.cohort_name')" />
                             <x-select id="cohort_name" class="block mt-1 w-full" name="cohort_name" :options="$options" />
-                            <x-input-error :messages="$errors->get('cohort_name')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('cohort_name')" class="mt-2" id="errorMessages" />
                         </div>
 
                         <div class="mt-4">
                             <x-input-label for="name" :value="__('certificate_app_reg.name')" />
                             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name"
                                 :value="old('name')" />
-                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('name')" class="mt-2" id="errorMessages2" />
                         </div>
 
                         <div class="mt-4">
                             <x-input-label for="name_kana" :value="__('certificate_app_reg.name_kana')" />
                             <x-text-input id="name_kana" class="block mt-1 w-full" type="text" name="name_kana"
                                 :value="old('name_kana')" />
-                            <x-input-error :messages="$errors->get('name_kana')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('name_kana')" class="mt-2" id="errorMessages3" />
                         </div>
 
                         <div class="mt-4">
@@ -59,14 +59,14 @@
                             <x-serch-button id="searchButton" class="ml-4 mt-2">
                                 {{ __('certificate_app_reg.search') }}
                             </x-serch-button>
-                            <x-input-error :messages="$errors->get('username')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('username')" class="mt-2" id="errorMessages4" />
                         </div>
 
                         <div class="mt-4">
                             <x-input-label for="password" :value="__('certificate_app_reg.password')" />
                             <x-text-input id="password" class="block mt-1 w-full" type="text" name="password"
                                 :value="old('password')" />
-                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" id="errorMessages5" />
                         </div>
 
                         <div class="mt-4">
@@ -139,6 +139,13 @@
                                 {{ __('certificate_app_reg.register') }}
                             </x-primary-button>
                         </div>
+                        <!-- 削除ボタン -->
+                        <div class="mt-6">
+                            <x-primary-button class="ml-4">
+                                {{ __('certificate_app_reg.delete') }}
+                            </x-primary-button>
+                        </div>
+
                     </form>
                     <!-- フォーム終了 -->
                 </div>
