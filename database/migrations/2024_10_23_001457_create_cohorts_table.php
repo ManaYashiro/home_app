@@ -13,18 +13,12 @@ return new class extends Migration
     {
         Schema::create('cohorts', function (Blueprint $table) {
             $table->id();
-            $table->string('cohort_name')
-                ->comment('期名称'); // Cohort Name
-            $table->date('app_ceo_date')
-                ->comment('在留資格認定証明書交付申請日'); // Residency Certificate Application Date
-            $table->date('app_visa_date')
-                ->comment('ビザ申請日'); // Visa Application Date
-            $table->date('jpn_lang_study_start_date')
-                ->comment('日本語学習開始日'); // Japanese Language Study Start Date
-            $table->date('jpn_lang_study_end_date')
-                ->comment('日本語学習終了日'); // Japanese Language Study End Date
-            $table->date('date_of_entry')
-                ->comment('入国日'); // Date of Entry
+            $table->string('cohort_name')->nullable()->comment('期名称'); // 期名称
+            $table->date('app_ceo_date')->comment('在留資格認定証明書交付申請日'); // 在留資格認定交付申請書
+            $table->date('app_visa_date')->nullable()->comment('ビザ申請日'); // ビザ申請日
+            $table->date('jpn_lang_study_start_date')->nullable()->comment('日本語学習開始日'); // 日本語学習開始日
+            $table->date('jpn_lang_study_end_date')->nullable()->comment('日本語学習終了日'); // 日本語学習終了日
+            $table->date('date_of_entry')->nullable()->comment('入国日'); // 入国日
             $table->timestamps();
         });
     }
