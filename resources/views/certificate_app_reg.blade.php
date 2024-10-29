@@ -56,6 +56,10 @@
                             <x-input-label for="username" :value="__('certificate_app_reg.username')" />
                             <x-text-input id="username" class="block mt-1 w-full" type="text" name="username"
                                 :value="old('username')" />
+                            <button type="button" id="searchButton"
+                                class="ml-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                {{ __('certificate_app_reg.search') }}
+                            </button>
                             <x-input-error :messages="$errors->get('username')" class="mt-2" />
                         </div>
 

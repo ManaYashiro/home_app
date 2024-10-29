@@ -9,4 +9,5 @@ Alpine.start();
 import $ from 'jquery';
 window.$ = $;
 
+import './search.js';
 import './fadeout.js';

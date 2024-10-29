@@ -19,4 +19,6 @@ return [
     'female' => '女性',
     'other' => 'その他',
     'register' => '登録',
+    'search' => '検索',
+    'delete' => '削除',
 ];

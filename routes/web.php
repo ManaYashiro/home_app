@@ -5,6 +5,7 @@ use App\Http\Controllers\ApplicantsRegistrationController;
 use App\Http\Controllers\CohortController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResidencyCertificateAppController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +50,8 @@ Route::middleware('auth')->group(function () {
             }
             return redirect()->back();
         })->name('locale.switch');
+
+        Route::get('/search', [UserController::class, 'search']); // 検索
     });
 });
 

@@ -33,13 +33,17 @@ class ResidencyCertificateAppController extends Controller
             'japanese_level' => 'nullable|string',
             'live_class_lesson' => 'nullable|string',
         ], [
-            'password.min' => 'passwordは8文字以上でなければなりません。',
+            'password.min' => 'passwordは8文字以上でなければなりません',
         ]);
 
-        // データ保存
-        ResidencyCertificateApplicant::create($validatedData);
-
-        // 成功メッセージ付きでリダイレクト
-        return redirect('/certificate_app_registration')->with('success', '在留資格認定書交付申請者登録が完了しました');
+        $applicant = ResidencyCertificateApplicant::where('username', $request->input('username'))->first();
+        if ($applicant) {
+            $applicant->update($validatedData); // データ保存
+            $message = '在留資格認定書交付申請者情報を更新しました';
+        } else {
+            ResidencyCertificateApplicant::create($validatedData); // データ保存
+            $message = '在留資格認定書交付申請者登録が完了しました';
+        }
+        return redirect('/certificate_app_registration')->with('success', $message);
     }
 }

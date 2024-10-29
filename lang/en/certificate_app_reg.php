@@ -19,4 +19,6 @@ return [
     'female' => 'Female',
     'other' => 'Other',
     'register' => 'register',
+    'search' => 'search',
+    'delete' => 'delete',
 ];
