@@ -12,10 +12,10 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::middleware('auth')->group(function () {
     Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
-        Route::get('/cohort_registration', function () {
-            return view('cohort_reg');
-        });
+        Route::get('/cohort_registration', [CohortController::class, 'index'])->name('cohorts.index');
+        Route::get('/cohorts/details/{cohortName}', [CohortController::class, 'getCohortDetails']);
         Route::post('/cohorts', [CohortController::class, 'store'])->name('cohorts.store');
+        Route::delete('/cohorts', [CohortController::class, 'destroy'])->name('cohorts.destroy');
         Route::post('/residency_certificate_applicants', [ResidencyCertificateAppController::class, 'store'])->name('residencyCertificateApplicants.store');
         Route::get('/certificate_app_registration', [ResidencyCertificateAppController::class, 'index'])->name('residencyCertificateApplicants.index');
         Route::get('/applicant_page', [ApplicantsController::class, 'index'])->name('applicantPage.index');
