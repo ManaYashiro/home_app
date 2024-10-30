@@ -13,7 +13,10 @@ return [
     'gender' => 'Gender',
     'jpn_lang_proficiency' => 'Japanese Level',
     'live_lesson_class' => 'Live Class Lesson',
-
+    'country_srilanka' => 'Sri lanka',
+    'gender_male' => 'Male',
+    'gender_female' => 'Female',
+    'gender_other' => 'Other',
 
     'COE_application_documents' => 'Documents related to Certificate of Eligibility application',
     'residency_certificate_application' => 'Application for Certificate of Eligibility',
@@ -44,7 +47,7 @@ return [
     'training_completion_certificate_nexus' => 'Training completion certificate(Nexus)',
     'moving_out_certificate' => 'Certificate of transfer',
     'national_health_insurance_withdrawal_certificate' => 'Certificate of withdrawal from National Health Insurance',
-    'national_pension_withdrawal_certificate	' => 'Certificate of withdrawal from National Pension',
+    'national_pension_withdrawal_certificate' => 'Certificate of withdrawal from National Pension',
     'moving_in_procedure' => 'Transfer procedures (reverse side of residence card)',
     'new_address_national_health_insurance' => 'National Health Insurance card for new address',
     'new_address_national_pension_book' => 'Pension book for new address',

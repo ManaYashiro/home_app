@@ -15,7 +15,7 @@ class CreateApplicantsTable extends Migration
     {
         Schema::create('applicants', function (Blueprint $table) {
             $table->id();
-
+            $table->unsignedBigInteger('user_id')->comment('ユーザーID');
             $table->string('residency_certificate_application')->nullable()->comment('在留資格認定証明書交付申請書');
             $table->string('proof_photo')->nullable()->comment('証明写真');
             $table->string('application_form')->nullable()->comment('アプリケーションフォーム');

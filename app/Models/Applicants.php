@@ -9,11 +9,14 @@ class Applicants extends Model
 {
     use HasFactory;
 
+    const UPLOAD_FOLDER = "uploads";
+
     // テーブル名を明示的に指定
     protected $table = 'applicants';
 
     // 複数代入可能なフィールドの定義
     protected $fillable = [
+        'user_id',
         'residency_certificate_application',
         'proof_photo',
         'application_form',
@@ -41,4 +44,9 @@ class Applicants extends Model
         'new_address_national_health_insurance',
         'new_address_national_pension_book',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

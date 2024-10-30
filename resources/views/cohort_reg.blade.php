@@ -28,8 +28,17 @@
                         @csrf <!-- CSRFトークンの追加 -->
                         <div>
                             <x-input-label for="cohort_name" :value="__('cohort_reg.cohort_name')" />
-                            <x-text-input id="cohort_name" class="block mt-1 w-full" type="text" name="cohort_name"
-                                :value="old('cohort_name')" autofocus />
+                            @php
+                                $options = array_merge(
+                                    ['' => __('certificate_app_reg.select')],
+                                    $cohorts->pluck('cohort_name', 'cohort_name')->toArray(),
+                                );
+                            @endphp
+                            <x-select id="select_cohort" class="block mt-1 w-full" name="cohort_name"
+                                :options="$options" />
+
+                            <x-text-input id="input_cohort" class="block mt-1 w-full" type="text" name="cohort_name"
+                                :value="old('cohort_name')" disabled />
                             <x-input-error :messages="$errors->get('cohort_name')" class="mt-2" />
                         </div>
 
@@ -69,13 +78,26 @@
                         </div>
 
                         <!-- 登録ボタン -->
-                        <div class="mt-6">
-                            <x-primary-button class="ml-4">
+                        <div class="mt-6 space-x-4">
+                            <x-primary-button>
                                 {{ __('cohort_reg.register') }}
                             </x-primary-button>
                         </div>
                     </form>
                     <!-- フォーム終了 -->
+
+                    <!-- 削除ボタンのための別フォーム -->
+                    <form id="delete-cohort-form" action="{{ route('cohorts.destroy') }}" method="POST"
+                        style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" name="cohort_name" id="cohort_name_to_delete" value="">
+
+                        <!-- 削除ボタン -->
+                        <x-primary-button class="mt-4 text-red-600" id="delete-cohort-button">
+                            {{ __('cohort_reg.delete') }}
+                        </x-primary-button>
+                    </form>
                 </div>
             </div>
         </div>
