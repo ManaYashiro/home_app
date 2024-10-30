@@ -2,14 +2,13 @@
 $('#searchButton').on('click', function() {
     var username = $('#username').val();
 
-    // サーバーにAJAXリクエストを送信
     $.ajax({
         url: '/search', // 検索を処理するルート
         type: 'GET',
         data: { username: username },
         success: function(response) {
             // 成功した場合の処理
-            console.log(response); // レスポンスの構造を確認
+            console.log(response);
             $('#results').empty(); // 前の結果をクリア
             if (response.length > 0) {
                 response.forEach(function(item) {

@@ -54,12 +54,14 @@
 
                         <div class="mt-4">
                             <x-input-label for="username" :value="__('certificate_app_reg.username')" />
+                            <x-select-user id="username2" class="block mt-1 w-full" name="username2"
+                                :options="$options" />
                             <x-text-input id="username" class="block mt-1 w-full" type="text" name="username"
                                 :value="old('username')" />
-                            <x-serch-button id="searchButton" class="ml-4 mt-2">
-                                {{ __('certificate_app_reg.search') }}
-                            </x-serch-button>
                             <x-input-error :messages="$errors->get('username')" class="mt-2" id="errorMessages4" />
+                            <x-search-button id="searchButton" class="ml-4 mt-2">
+                                {{ __('certificate_app_reg.search') }}
+                            </x-search-button>
                         </div>
 
                         <div class="mt-4">
@@ -139,15 +141,21 @@
                                 {{ __('certificate_app_reg.register') }}
                             </x-primary-button>
                         </div>
-                        <!-- 削除ボタン -->
-                        <div class="mt-6">
-                            <x-primary-button class="ml-4">
-                                {{ __('certificate_app_reg.delete') }}
-                            </x-primary-button>
-                        </div>
-
                     </form>
                     <!-- フォーム終了 -->
+                    <!-- 削除ボタンのための別フォーム -->
+                    <form id="delete-certificate-form" action="{{ route('certificate.destroy') }}" method="POST"
+                        style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" name="certificate_name" id="certificate_name_to_delete"
+                            value="">
+
+                        <!-- 削除ボタン -->
+                        <x-primary-button class="mt-4 text-red-600" id="delete-certificate-button">
+                            {{ __('certificate_app_reg.delete') }}
+                        </x-primary-button>
+                    </form>
                 </div>
             </div>
         </div>
