@@ -36,8 +36,12 @@ $(function () {
 $('[id$="_resetFile"]').each(function() {
     $(this).on('click', function(e) {
         e.preventDefault();
+        let Id = $(this).attr('id');
+        console.log(Id);
+        $('#' + Id).text('');
         // ボタンのIDから '_resetFile' を削除して、対応するファイル入力のIDを取得
         let targetInputId = $(this).attr('id').replace('_resetFile', '');
+        // console.log(targetInputId);
         $('#' + targetInputId).val('');  // 対応するファイル入力をリセット
     });
 });
