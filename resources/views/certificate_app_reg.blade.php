@@ -35,35 +35,40 @@
                             @endphp
                             <x-input-label for="cohort_name" :value="__('certificate_app_reg.cohort_name')" />
                             <x-select id="cohort_name" class="block mt-1 w-full" name="cohort_name" :options="$options" />
-                            <x-input-error :messages="$errors->get('cohort_name')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('cohort_name')" class="mt-2" id="errorMessages" />
                         </div>
 
                         <div class="mt-4">
                             <x-input-label for="name" :value="__('certificate_app_reg.name')" />
                             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name"
                                 :value="old('name')" />
-                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('name')" class="mt-2" id="errorMessages2" />
                         </div>
 
                         <div class="mt-4">
                             <x-input-label for="name_kana" :value="__('certificate_app_reg.name_kana')" />
                             <x-text-input id="name_kana" class="block mt-1 w-full" type="text" name="name_kana"
                                 :value="old('name_kana')" />
-                            <x-input-error :messages="$errors->get('name_kana')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('name_kana')" class="mt-2" id="errorMessages3" />
                         </div>
 
                         <div class="mt-4">
                             <x-input-label for="username" :value="__('certificate_app_reg.username')" />
-                            <x-text-input id="username" class="block mt-1 w-full" type="text" name="username"
+                            <x-select-user id="select_username" class="block mt-1 w-full" name="username"
+                                :options="$options" />
+                            <x-text-input id="input_username" class="block mt-1 w-full" type="text" name="username"
                                 :value="old('username')" />
-                            <x-input-error :messages="$errors->get('username')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('username')" class="mt-2" id="errorMessages4" />
+                            <x-search-button id="searchButton" class="ml-4 mt-2">
+                                {{ __('certificate_app_reg.search') }}
+                            </x-search-button>
                         </div>
 
                         <div class="mt-4">
                             <x-input-label for="password" :value="__('certificate_app_reg.password')" />
                             <x-text-input id="password" class="block mt-1 w-full" type="text" name="password"
                                 :value="old('password')" />
-                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" id="errorMessages5" />
                         </div>
 
                         <div class="mt-4">
@@ -138,6 +143,19 @@
                         </div>
                     </form>
                     <!-- フォーム終了 -->
+                    <!-- 削除ボタンのための別フォーム -->
+                    <form id="delete-certificate-form" action="{{ route('certificate.destroy') }}" method="POST"
+                        style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" name="certificate_name" id="certificate_name_to_delete"
+                            value="">
+
+                        <!-- 削除ボタン -->
+                        <x-primary-button class="mt-4 text-red-600" id="delete-certificate-button">
+                            {{ __('certificate_app_reg.delete') }}
+                        </x-primary-button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -19,4 +19,11 @@ return [
     'female' => 'Female',
     'other' => 'Other',
     'register' => 'register',
+    'search' => 'search',
+    'delete' => 'delete',
+    'message' => 'The registration of the applicant for the Certificate of Eligibility has been completed.',
+    'upMessage' => 'The information for the applicant for the Certificate of Eligibility has been updated.',
+    'delete_success' => 'User has been deleted.',
+    'not_found' => 'The specified user could not be found.',
+    'select_user' => 'Please select the user to delete.',
 ];
