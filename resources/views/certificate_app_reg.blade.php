@@ -54,9 +54,9 @@
 
                         <div class="mt-4">
                             <x-input-label for="username" :value="__('certificate_app_reg.username')" />
-                            <x-select-user id="username2" class="block mt-1 w-full" name="username2"
+                            <x-select-user id="select_username" class="block mt-1 w-full" name="username"
                                 :options="$options" />
-                            <x-text-input id="username" class="block mt-1 w-full" type="text" name="username"
+                            <x-text-input id="input_username" class="block mt-1 w-full" type="text" name="username"
                                 :value="old('username')" />
                             <x-input-error :messages="$errors->get('username')" class="mt-2" id="errorMessages4" />
                             <x-search-button id="searchButton" class="ml-4 mt-2">

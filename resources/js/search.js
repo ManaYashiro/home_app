@@ -1,6 +1,6 @@
 //検索
 $('#searchButton').on('click', function() {
-    var username = $('#username').val();
+    var username = $('#input_username').val();
 
     $.ajax({
         url: '/search', // 検索を処理するルート
@@ -27,7 +27,7 @@ $('#searchButton').on('click', function() {
 //表示
 $(function() {
     $('#searchButton').on('click', function() {
-        var username = $('#username').val();
+        var username = $('#input_username').val();
 
         $.ajax({
             url: '/search',

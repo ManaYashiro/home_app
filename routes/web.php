@@ -23,8 +23,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/applicant_registration_page/{id}', [ApplicantsRegistrationController::class, 'index'])->name('applicant.registration');
         Route::post('/applicant_registration_page/{id}', [ApplicantsRegistrationController::class, 'store'])->name('applicants.store');
         Route::get('/search', [CertificateAppRegistrationController::class, 'search']); // 検索
-        Route::get('/search_user', [CertificateAppRegistrationController::class, 'select']); // 選択
-        Route::get('/select_user', [CertificateAppRegistrationController::class, 'select2']); // 選択2
+        Route::get('/search_user', [CertificateAppRegistrationController::class, 'cohortSelect']); // 期選択
+        Route::get('/select_user', [CertificateAppRegistrationController::class, 'userSelect']); // ユーザー選択
         Route::delete('/certificate', [ResidencyCertificateAppController::class, 'destroy'])->name('certificate.destroy');
         Route::get('/menu', function () {
             return view('menu');

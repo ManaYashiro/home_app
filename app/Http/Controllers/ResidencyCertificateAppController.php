@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ResidencyCertificateApplicantRequest;
 use App\Models\Cohort;
 use Illuminate\Http\Request;
 use App\Models\ResidencyCertificateApplicant;
@@ -16,54 +17,32 @@ class ResidencyCertificateAppController extends Controller
         return view('certificate_app_reg', compact('cohorts'));
     }
 
-    public function store(Request $request)
+    public function store(ResidencyCertificateApplicantRequest $request)
     {
-        // バリデーション
-        $validatedData = $request->validate([
-            'cohort_name' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
-            'name_kana' => 'required|string|max:255',
-            'username' => 'nullable|required_without:username2|string|max:255', // username2がない場合のみ必須
-            'username2' => 'nullable|required_without:username|string|max:255', // usernameがない場合のみ必須
-            'password' => 'required|string|min:8', // 例：パスワードは8文字以上
-            'email' => 'nullable|email|unique:residency_certificate_applicants,email',
-            'country' => 'nullable|string',
-            'language' => 'nullable|string',
-            'age' => 'nullable|integer',
-            'gender' => 'nullable|string',
-            'japanese_level' => 'nullable|string',
-            'live_class_lesson' => 'nullable|string',
-        ], [
-            'password.min' => 'passwordは8文字以上でなければなりません',
-            'username.required_without' => 'usernameは必須です',
-            'username2.required_without' => 'usernameは必須です',
-        ]);
+        $validatedData = $request->validated();
 
-        // username2が存在すればそれを使用し、なければusernameを使用する
-        $usernameToCheck = $request->input('username2') ?: $request->input('username');
         // 該当するユーザーが存在するか確認
-        $applicant = ResidencyCertificateApplicant::where('username', $usernameToCheck)->first();
+        $applicant = ResidencyCertificateApplicant::where('username', $request->input('username'))->first();
 
-        if ($applicant) {
-            //更新データ
-            $applicant->update($validatedData);
-            $message = __('certificate_app_reg.upMessage');
-        } else {
+        if (!$applicant) {
             //保存データ
             ResidencyCertificateApplicant::create($validatedData);
             $message = __('certificate_app_reg.message');
+        } else {
+            //更新データ
+            $applicant->update($validatedData);
+            $message = __('certificate_app_reg.upMessage');
         }
         return redirect('/certificate_app_registration')->with('success', $message);
     }
 
     public function destroy(Request $request)
     {
-        // リクエストからusernameを取得
-        $applicant = $request->input('username');
-
+        // リクエストからcertificate_nameを取得
+        $applicant = $request->input('certificate_name');
         // usernameが存在する場合は削除
         if ($applicant) {
-            $certificate = ResidencyCertificateApplicant::where('user_name', $applicant)->first();
+            $certificate = ResidencyCertificateApplicant::where('username', $applicant)->first();
 
             if ($certificate) {
                 $certificate->delete();

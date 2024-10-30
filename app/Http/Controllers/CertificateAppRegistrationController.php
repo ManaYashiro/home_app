@@ -7,10 +7,8 @@ use App\Models\ResidencyCertificateApplicant;
 
 class CertificateAppRegistrationController extends Controller
 {
-
     public function search(Request $request)
     {
-
         $username = $request->input('username');
 
         // データベースからレコードを取得
@@ -21,9 +19,8 @@ class CertificateAppRegistrationController extends Controller
         return response()->json($results);
     }
 
-    public function select(Request $request)
+    public function cohortSelect(Request $request)
     {
-
         $cohort_name = $request->input('cohort_name');
 
         // データベースからレコードを取得
@@ -34,9 +31,8 @@ class CertificateAppRegistrationController extends Controller
         return response()->json($results);
     }
 
-    public function select2(Request $request)
+    public function userSelect(Request $request)
     {
-
         $username = $request->input('username');
 
         // データベースからレコードを取得
