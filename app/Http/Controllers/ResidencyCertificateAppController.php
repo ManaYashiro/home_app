@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ResidencyCertificateApplicantRequest;
+use App\Models\Applicants;
 use App\Models\Cohort;
 use Illuminate\Http\Request;
 use App\Models\ResidencyCertificateApplicant;
@@ -43,9 +44,12 @@ class ResidencyCertificateAppController extends Controller
         // usernameが存在する場合は削除
         if ($applicant) {
             $certificate = ResidencyCertificateApplicant::where('username', $applicant)->first();
-
+            $applicant = Applicants::where('user_id', $certificate->id)->first();
             if ($certificate) {
                 $certificate->delete();
+                if ($applicant) {
+                    $applicant->delete();
+                }
                 return redirect('/certificate_app_registration')->with('success', __('certificate_app_reg.delete_success'));
             } else {
                 return redirect('/certificate_app_registration')->withErrors(['username' => __('certificate_app_reg.not_found')]);
