@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Applicants;
 use Illuminate\Http\Request;
 use App\Models\ResidencyCertificateApplicant;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class ApplicantsRegistrationController extends Controller
@@ -31,7 +30,7 @@ class ApplicantsRegistrationController extends Controller
         return view('applicant_reg_page', [
             'id' => $id,
             'residentApplicant' => $residentApplicant,
-            'upload' => $this->uploadsFolder,
+            'upload' => $this->uploadsFolder . "/" . $residentApplicant->username,
         ]);
     }
 
@@ -95,14 +94,14 @@ class ApplicantsRegistrationController extends Controller
             'new_address_national_health_insurance',
             'new_address_national_pension_book',
         ];
+        // IDでResidentを取得
+        $residentApplicant = ResidencyCertificateApplicant::where('residency_certificate_applicants.id', $id)->first();
         // IDに基づいてユーザーを取得
         $applicant = Applicants::where('user_id', $id)->first();
 
         foreach ($fileArray as $key) {
-            $path = $this->fileUpload($request, $key);
-            if ($path) {
-                $data[$key] = $path;
-            }
+            $path = $this->fileUpload($residentApplicant->username, $request, $key);
+            $data[$key] = $path;
         }
         $data['user_id'] = $id;
 
@@ -115,14 +114,14 @@ class ApplicantsRegistrationController extends Controller
         return redirect()->route('applicant.registration', $id)->with('success', '申請が完了しました');
     }
 
-    public function fileUpload($request, $key)
+    public function fileUpload($username, $request, $key)
     {
         if ($request->hasFile($key)) {
             $file = $request->file($key);
             $file_extension = $file->extension();
             $file_mime_type = $file->getClientMimeType();
             $original_file_name = $file->getClientOriginalName();
-            return Storage::disk('public')->putFileAs($this->uploadsFolder, $file, $original_file_name);
+            return Storage::disk('public')->putFileAs($this->uploadsFolder . "/" . $username, $file, $original_file_name);
         }
 
         return null;

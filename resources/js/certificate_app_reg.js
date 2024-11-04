@@ -9,10 +9,10 @@ $(function() {
             data: { cohort_name: cohort_name },
             success: function(response) {
                 // 成功した場合の処理
-                $('#select_username').empty();
-                $('#select_username').append('<option value="">選択してください</option>');
+                $('#select_username_id').empty();
+                $('#select_username_id').append('<option value=""></option>');
                 response.forEach(function(item) {
-                    $('#select_username').append(new Option(item.username));
+                    $('#select_username_id').append(new Option(item.username,item.id));
                 });
             },
             error: function(xhr) {
@@ -24,20 +24,24 @@ $(function() {
     });
 
     //表示
-    $('#select_username').on('change', function() {
-        var username = $('#select_username').val();
-
+    $('#select_username_id').on('change', function() {
+        var username_id = $('#select_username_id').val();
         $.ajax({
             url: '/select_user',
             method: 'GET',
             data: {
-                username: username
+                username_id: username_id
             },
             success: function(response) {
-                $('#errorMessages2').empty();
-                $('#errorMessages3').empty();
-                $('#errorMessages4').empty();
-                $('#errorMessages5').empty();
+                $('.search-error-message').empty();
+                $('#password').prop('disabled', false);
+                $('#email').prop('disabled', false);
+                $('#country').prop('disabled', false);
+                $('#language').prop('disabled', false);
+                $('#age').prop('disabled', false);
+                $('#gender').prop('disabled', false);
+                $('#japanese_level').prop('disabled', false);
+                $('#live_class_lesson').prop('disabled', false);
 
                 if (response) {
                     $('#name').val(response.name);
@@ -50,16 +54,19 @@ $(function() {
                     $('#gender').val(response.gender);
                     $('#japanese_level').val(response.japanese_level);
                     $('#live_class_lesson').val(response.live_class_lesson);
+
+                    // 更新用の見出しを表示し、新規用は非表示
+                    $('#RegistrationUpdate').show();
+                    $('#Registrationnew').hide();
                 }
             },
             error: function() {
-                alert('An error occurred while searching.');
             }
         });
     });
 
     // disabled判定
-    $('#select_username').on('change', function () {
+    $('#select_username_id').on('change', function () {
         const isSelected = $(this).val() !== ''; // 空でない場合は選択されていると判断
         $('#input_username').prop('disabled', isSelected); // 選択されていれば無効化
         $('#searchButton').prop('disabled', isSelected); // 選択されていれば無効化
@@ -68,15 +75,71 @@ $(function() {
     // disabled判定
     $('#input_username').on('change', function () {
         const isSelected = $(this).val() !== ''; // 空でない場合は選択されていると判断
+        $('#select_username_id').prop('disabled', isSelected); // 選択されていれば無効化
+    });
 
-        $('#select_username').prop('disabled', isSelected); // 選択されていれば無効化
+    // 検索disabled判定
+    $('#input_username').on('input', function () {
+        // 入力フィールドが空でない場合、ボタンを有効にする
+        if ($(this).val().trim() !== '') {
+            $('#searchButton').prop('disabled', false);
+        } else {
+            $('#searchButton').prop('disabled', true);
+        }
+    });
+
+    //検索を押すまでdisabled判定
+    $('#searchButton').on('click', function() {
+        $('#password').prop('disabled', false);
+        $('#email').prop('disabled', false);
+        $('#country').prop('disabled', false);
+        $('#language').prop('disabled', false);
+        $('#age').prop('disabled', false);
+        $('#gender').prop('disabled', false);
+        $('#japanese_level').prop('disabled', false);
+        $('#live_class_lesson').prop('disabled', false);
+    });
+
+    //入力データ全てリセット
+    $('#resetButton').on('click', function() {
+        const isSelected = $(this).val() !== ''; // 空でない場合は選択されていると判断
+        $('#input_username').prop('disabled', isSelected); // 選択されていれば無効化
+        $('#select_username_id').prop('disabled', isSelected); // 選択されていれば無効化
+        $('.search-error-message').empty();
+        $('#cohort_name').val('');
+        $('#name').val('');
+        $('#name_kana').val('');
+        $('#username').val('');
+        $('#select_username_id').val('');
+        $('#input_username').val('');
+        $('#password').val('');
+        $('#email').val('');
+        $('#country').val('');
+        $('#language').val('');
+        $('#age').val('');
+        $('#gender').val('');
+        $('#japanese_level').val('');
+        $('#live_class_lesson').val('');
+
+        // リセット時に再度disabledを設定
+        $('#password').prop('disabled', true);
+        $('#email').prop('disabled', true);
+        $('#country').prop('disabled', true);
+        $('#language').prop('disabled', true);
+        $('#age').prop('disabled', true);
+        $('#gender').prop('disabled', true);
+        $('#japanese_level').prop('disabled', true);
+        $('#live_class_lesson').prop('disabled', true);
+
+        //リセット時は新規登録に切り替え
+        $('#RegistrationUpdate').hide();
+        $('#Registrationnew').show();
     });
 
     //削除
     $('#delete-certificate-button').on('click', function(event) {
         event.preventDefault(); // デフォルトの動作を防ぐ
-        const userName = $('#select_username').val() || $('#input_username').val();
-
+        const userName = $('#select_username_id').val() || $('#input_username').val();
         if (!userName) {
             alert('削除するユーザー名をを選択してください');
             return;
