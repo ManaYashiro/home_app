@@ -1,33 +1,8 @@
-//検索
-$('#searchButton').on('click', function() {
-    var username = $('#input_username').val();
-
-    $.ajax({
-        url: '/search', // 検索を処理するルート
-        type: 'GET',
-        data: { username: username },
-        success: function(response) {
-            // 成功した場合の処理
-            console.log(response);
-            $('#results').empty(); // 前の結果をクリア
-            if (response.length > 0) {
-                response.forEach(function(item) {
-                    $('#results').append('<div>' + item.username + '</div>'); // 必要に応じてカスタマイズ
-                });
-            }
-        },
-        error: function(xhr) {
-            // エラー処理
-            console.error(xhr.responseText);
-            alert('ユーザー名の検索中にエラーが発生しました。');
-        }
-    });
-});
-
-//表示
+// //検索表示
 $(function() {
     $('#searchButton').on('click', function() {
         var username = $('#input_username').val();
+        console.log(username);
 
         $.ajax({
             url: '/search',
@@ -36,13 +11,11 @@ $(function() {
                 username: username
             },
             success: function(response) {
-                $('#errorMessages').empty();
-                $('#errorMessages2').empty();
-                $('#errorMessages3').empty();
-                $('#errorMessages4').empty();
-                $('#errorMessages5').empty();
+                console.log(response);
+                $('.search-error-message').empty();
 
-                if (response) {
+                // 検索結果がある場合
+                if (response && Object.keys(response).length > 0) {
                     $('#cohort_name').val(response.cohort_name);
                     $('#name').val(response.name);
                     $('#name_kana').val(response.name_kana);
@@ -54,6 +27,14 @@ $(function() {
                     $('#gender').val(response.gender);
                     $('#japanese_level').val(response.japanese_level);
                     $('#live_class_lesson').val(response.live_class_lesson);
+
+                    // 更新用の見出しを表示し、新規用は非表示
+                    $('#RegistrationUpdate').show();
+                    $('#Registrationnew').hide();
+                } else {
+                    // 検索結果がない場合、新規用の見出しを表示し、更新用は非表示
+                    $('#RegistrationUpdate').hide();
+                    $('#Registrationnew').show();
                 }
             },
             error: function() {
@@ -62,3 +43,4 @@ $(function() {
         });
     });
 });
+

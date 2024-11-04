@@ -23,15 +23,30 @@ class ResidencyCertificateApplicantRequest extends FormRequest
     public function rules(): array
     {
         $applicant = null;
-        if ($this->has('username')) {
-            $userId = $this->input('username');
-            $applicant = ResidencyCertificateApplicant::where('username', $userId)->first();
+        if ($this->has('select_username_id')) {
+            //select選択時
+            $userId = $this->input('select_username_id');
+            $applicant = ResidencyCertificateApplicant::where('id', $userId)->first();
+            //residency_certificate_applicantsのIDとselectのvalueが取得したIDが一致したものが時
+            if ($applicant) {
+                //selectで選択されたユーザーの名前をそのまま返す
+                $this->merge(
+                    ['username' => $applicant->username]
+                );
+            }
+        } else if ($this->has('username')) {
+            //input入力時
+            if (!$applicant = null) {
+                $username = $this->input('username');
+                $applicant = ResidencyCertificateApplicant::where('username', $username)->first();
+            }
         }
+
         return [
             'cohort_name' => 'required|string|max:255',
             'name' => 'required|string|max:255',
             'name_kana' => 'required|string|max:255',
-            'username' => 'nullable|string|max:255',
+            'username' => 'required|string|unique:residency_certificate_applicants,username,' . ($applicant ? $applicant->id : 'NULL'),
             'password' => 'required|string|min:8', // 例：パスワードは8文字以上
             'email' => 'required|email|unique:residency_certificate_applicants,email,' . ($applicant ? $applicant->id : 'NULL'),
             'country' => 'nullable|string',

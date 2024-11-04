@@ -6,6 +6,7 @@ use App\Http\Controllers\CohortController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResidencyCertificateAppController;
 use App\Http\Controllers\CertificateAppRegistrationController;
+use App\Http\Controllers\DownLoadController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/search_user', [CertificateAppRegistrationController::class, 'cohortSelect']); // 期選択
         Route::get('/select_user', [CertificateAppRegistrationController::class, 'userSelect']); // ユーザー選択
         Route::delete('/certificate', [ResidencyCertificateAppController::class, 'destroy'])->name('certificate.destroy');
+        Route::post('/download', [DownLoadController::class, 'download'])->name('file.download');
         Route::get('/menu', function () {
             return view('menu');
         })->middleware(['auth'])->name('menu');

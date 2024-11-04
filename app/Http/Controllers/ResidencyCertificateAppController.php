@@ -24,7 +24,6 @@ class ResidencyCertificateAppController extends Controller
 
         // 該当するユーザーが存在するか確認
         $applicant = ResidencyCertificateApplicant::where('username', $request->input('username'))->first();
-
         if (!$applicant) {
             //保存データ
             ResidencyCertificateApplicant::create($validatedData);
@@ -41,9 +40,15 @@ class ResidencyCertificateAppController extends Controller
     {
         // リクエストからcertificate_nameを取得
         $applicant = $request->input('certificate_name');
+        //取得がIDの場合
+        if (is_numeric($applicant)) {
+            $certificate = ResidencyCertificateApplicant::find($applicant);
+            $applicant = $certificate ? $certificate->username : null;
+        }
         // usernameが存在する場合は削除
         if ($applicant) {
             $certificate = ResidencyCertificateApplicant::where('username', $applicant)->first();
+
             $applicant = Applicants::where('user_id', $certificate->id)->first();
             if ($certificate) {
                 $certificate->delete();

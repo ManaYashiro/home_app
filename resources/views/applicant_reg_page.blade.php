@@ -135,7 +135,7 @@
                                     </div>
                                     <x-file-input-block-component :alldata="[
                                         'filename' => $filename,
-                                        'data' => $residentApplicant->$filename,
+                                        'data' => $residentApplicant->$filename ?? null,
                                         'upload' => $upload,
                                     ]" />
                                 </div>
@@ -158,7 +158,7 @@
                                     </div>
                                     <x-file-input-block-component :alldata="[
                                         'filename' => $filename,
-                                        'data' => $residentApplicant->$filename,
+                                        'data' => $residentApplicant->$filename ?? null,
                                         'upload' => $upload,
                                     ]" />
                                 </div>
@@ -188,7 +188,7 @@
                                     </div>
                                     <x-file-input-block-component :alldata="[
                                         'filename' => $filename,
-                                        'data' => $residentApplicant->$filename,
+                                        'data' => $residentApplicant->$filename ?? null,
                                         'upload' => $upload,
                                     ]" />
                                 </div>
@@ -223,7 +223,7 @@
                                     </div>
                                     <x-file-input-block-component :alldata="[
                                         'filename' => $filename,
-                                        'data' => $residentApplicant->$filename,
+                                        'data' => $residentApplicant->$filename ?? null,
                                         'upload' => $upload,
                                     ]" />
                                 </div>
@@ -235,6 +235,8 @@
                                 {{ __('登録') }}
                             </x-primary-button>
                         </div>
+
+                        <input type="hidden" id="download-url" value="{{ route('file.download') }}">
                     </form>
                 </div>
             </div>

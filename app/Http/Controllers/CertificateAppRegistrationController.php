@@ -33,10 +33,10 @@ class CertificateAppRegistrationController extends Controller
 
     public function userSelect(Request $request)
     {
-        $username = $request->input('username');
+        $username_id = $request->input('username_id');
 
         // データベースからレコードを取得
-        $results = ResidencyCertificateApplicant::where('username', $username)
+        $results = ResidencyCertificateApplicant::where('id', $username_id)
             ->first();
 
         // JSONとして結果を返す
