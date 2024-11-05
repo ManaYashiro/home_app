@@ -4,10 +4,8 @@ $(function () {
     $(document).on('change', 'input[type="file"]', function (e) {
         // 選択されたファイルをデータ属性に格納
         const selectedFile = e.target.files[0];
-
         if (selectedFile) {
             $(this).data('selectedFile', selectedFile);
-            console.log(selectedFile)
         } else {
             $(this).data('selectedFile', null);
         }
