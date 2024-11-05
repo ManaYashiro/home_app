@@ -48,9 +48,8 @@ class ResidencyCertificateAppController extends Controller
         // usernameが存在する場合は削除
         if ($applicant) {
             $certificate = ResidencyCertificateApplicant::where('username', $applicant)->first();
-
-            $applicant = Applicants::where('user_id', $certificate->id)->first();
             if ($certificate) {
+                $applicant = Applicants::where('user_id', $certificate->id)->first();
                 $certificate->delete();
                 if ($applicant) {
                     $applicant->delete();

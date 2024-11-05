@@ -2,8 +2,6 @@
 $(function() {
     $('#searchButton').on('click', function() {
         var username = $('#input_username').val();
-        console.log(username);
-
         $.ajax({
             url: '/search',
             method: 'GET',
@@ -11,9 +9,7 @@ $(function() {
                 username: username
             },
             success: function(response) {
-                console.log(response);
                 $('.search-error-message').empty();
-
                 // 検索結果がある場合
                 if (response && Object.keys(response).length > 0) {
                     $('#cohort_name').val(response.cohort_name);
@@ -28,17 +24,21 @@ $(function() {
                     $('#japanese_level').val(response.japanese_level);
                     $('#live_class_lesson').val(response.live_class_lesson);
 
+                    //検索結果の一致でdisabled
+                    $('#input_username').prop('disabled', true);
+
                     // 更新用の見出しを表示し、新規用は非表示
                     $('#RegistrationUpdate').show();
                     $('#Registrationnew').hide();
-                } else {
+
+                    } else {
                     // 検索結果がない場合、新規用の見出しを表示し、更新用は非表示
                     $('#RegistrationUpdate').hide();
                     $('#Registrationnew').show();
                 }
             },
             error: function() {
-                alert('An error occurred while searching.');
+                alert('検索中にエラーが発生しました。');
             }
         });
     });
