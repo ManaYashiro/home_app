@@ -65,14 +65,14 @@ $(function() {
         });
     });
 
-    // disabled判定
+    // disabled判定(select)
     $('#select_username_id').on('change', function () {
         const isSelected = $(this).val() !== ''; // 空でない場合は選択されていると判断
         $('#input_username').prop('disabled', isSelected); // 選択されていれば無効化
         $('#searchButton').prop('disabled', isSelected); // 選択されていれば無効化
     });
 
-    // disabled判定
+    // disabled判定(input)
     $('#input_username').on('change', function () {
         const isSelected = $(this).val() !== ''; // 空でない場合は選択されていると判断
         $('#select_username_id').prop('disabled', isSelected); // 選択されていれば無効化
