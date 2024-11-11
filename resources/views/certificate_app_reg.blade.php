@@ -42,27 +42,43 @@
                                     $cohorts->pluck('cohort_name', 'cohort_name')->toArray(),
                                 );
                             @endphp
-                            <x-input-label for="cohort_name" :value="__('certificate_app_reg.cohort_name')" />
+                            <div class="flex items-center">
+                                <x-input-label for="cohort_name" :value="__('certificate_app_reg.cohort_name')" />
+                                <span class="text-red-500 ml-1">*</span>
+                            </div>
+
                             <x-select id="cohort_name" class="block mt-1 w-full" name="cohort_name" :options="$options" />
                             <x-input-error :messages="$errors->get('cohort_name')" class="mt-2 search-error-message" />
                         </div>
 
                         <div class="mt-4">
-                            <x-input-label for="name" :value="__('certificate_app_reg.name')" />
+                            <div class="flex items-center">
+                                <x-input-label for="name" :value="__('certificate_app_reg.name')" />
+                                <span class="text-red-500 ml-1">*</span>
+                            </div>
+
                             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name"
                                 :value="old('name')" />
                             <x-input-error :messages="$errors->get('name')" class="mt-2 search-error-message" />
                         </div>
 
                         <div class="mt-4">
-                            <x-input-label for="name_kana" :value="__('certificate_app_reg.name_kana')" />
+                            <div class="flex items-center">
+                                <x-input-label for="name_kana" :value="__('certificate_app_reg.name_kana')" />
+                                <span class="text-red-500 ml-1">*</span>
+                            </div>
+
                             <x-text-input id="name_kana" class="block mt-1 w-full" type="text" name="name_kana"
                                 :value="old('name_kana')" />
                             <x-input-error :messages="$errors->get('name_kana')" class="mt-2 search-error-message" />
                         </div>
 
                         <div class="mt-4">
-                            <x-input-label for="username" :value="__('certificate_app_reg.username')" />
+                            <div class="flex items-center">
+                                <x-input-label for="username" :value="__('certificate_app_reg.username')" />
+                                <span class="text-red-500 ml-1">*</span>
+                            </div>
+
                             <x-select-user id="select_username_id" class="block mt-1 w-full" name="select_username_id"
                                 :options="$options" />
                             <x-text-input id="input_username" class="block mt-1 w-full" type="text" name="username"
@@ -77,7 +93,11 @@
                         </div>
 
                         <div class="mt-4">
-                            <x-input-label for="password" :value="__('certificate_app_reg.password')" />
+                            <div class="flex items-center">
+                                <x-input-label for="password" :value="__('certificate_app_reg.password')" />
+                                <span class="text-red-500 ml-1">*</span>
+                            </div>
+
                             <x-text-input id="password" class="block mt-1 w-full" type="text" name="password"
                                 :value="old('password')" disabled />
                             <x-input-error :messages="$errors->get('password')" class="mt-2 search-error-message" />
