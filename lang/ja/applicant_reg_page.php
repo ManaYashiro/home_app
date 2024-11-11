@@ -47,7 +47,7 @@ return [
     'training_completion_certificate_nexus' => '研修終了証(Nexus)',
     'moving_out_certificate' => '転出証明書',
     'national_health_insurance_withdrawal_certificate' => '国民健康保険脱退証明書',
-    'national_pension_withdrawal_certificate	' => '国民年金脱退証明書',
+    'national_pension_withdrawal_certificate' => '国民年金脱退証明書',
     'moving_in_procedure' => '転入手続(在留カード裏面)',
     'new_address_national_health_insurance' => '新住所での国民健康保険証',
     'new_address_national_pension_book' => '新住所での国民年金手帳',
