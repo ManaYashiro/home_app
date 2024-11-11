@@ -27,7 +27,10 @@
                     <form method="POST" action="{{ route('cohorts.store') }}">
                         @csrf <!-- CSRFトークンの追加 -->
                         <div>
-                            <x-input-label for="cohort_name" :value="__('cohort_reg.cohort_name')" />
+                            <div class="flex items-center">
+                                <x-input-label for="cohort_name" :value="__('cohort_reg.cohort_name')" />
+                                <span class="text-red-500 ml-1">*</span>
+                            </div>
                             @php
                                 $options = array_merge(
                                     ['' => __('certificate_app_reg.select')],
@@ -43,7 +46,11 @@
                         </div>
 
                         <div class="mt-4">
-                            <x-input-label for="app_ceo_date" :value="__('cohort_reg.app_ceo_date')" />
+                            <div class="flex items-center">
+                                <x-input-label for="app_ceo_date" :value="__('cohort_reg.app_ceo_date')" />
+                                <span class="text-red-500 ml-1">*</span>
+                            </div>
+
                             <x-text-input id="app_ceo_date" class="block mt-1 w-full" type="date" name="app_ceo_date"
                                 :value="old('app_ceo_date')" />
                             <x-input-error :messages="$errors->get('app_ceo_date')" class="mt-2" />
