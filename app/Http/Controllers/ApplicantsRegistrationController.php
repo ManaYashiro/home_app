@@ -100,9 +100,22 @@ class ApplicantsRegistrationController extends Controller
         $applicant = Applicants::where('user_id', $id)->first();
 
         foreach ($fileArray as $key) {
-            $path = $this->fileUpload($residentApplicant->username, $request, $key);
-            if ($path) {
-                $data[$key] = $path;
+            // 隠しフィールドの値を取得
+            $hiddenValue = $request->input($key . '_hidden');
+            $file = $request->file($key); // ファイル入力
+
+            if ($file) {
+                // ファイルが選択されている場合はアップロードしてパスを取得
+                $path = $this->fileUpload($residentApplicant->username, $request, $key);
+                if ($path) {
+                    $data[$key] = $path;
+                }
+            } elseif (empty($hiddenValue)) {
+                // 隠しフィールドも空の場合は、データベースで該当フィールドをnullに設定
+                $data[$key] = null;
+            } else {
+                // 隠しフィールドに値がある場合はそのまま保存
+                $data[$key] = $hiddenValue;
             }
         }
 
