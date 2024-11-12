@@ -101,8 +101,11 @@ class ApplicantsRegistrationController extends Controller
 
         foreach ($fileArray as $key) {
             $path = $this->fileUpload($residentApplicant->username, $request, $key);
-            $data[$key] = $path;
+            if ($path) {
+                $data[$key] = $path;
+            }
         }
+
         $data['user_id'] = $id;
 
         if ($applicant) {
