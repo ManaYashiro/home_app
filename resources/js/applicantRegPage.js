@@ -52,12 +52,19 @@ $(function () {
             });
 });
 
-// ラベルリセット
+// // ラベルリセット
 $('[id$="_resetFile"]').each(function() {
     $(this).on('click', function(e) {
         e.preventDefault();
-        // ボタンのIDから '_resetFile' を削除して、対応するファイル入力のIDを取得
+
+        // ボタンのIDから '_resetFile' を削除して、対応するIDを取得
         let labelTextId = $(this).attr('id').replace('_resetFile', '');
-        $('#' + labelTextId).text('');// 対応するラベルリセット
+        let hiddenId = labelTextId + '_hidden';
+
+        // 対応するラベルのリセット
+        $('#' + labelTextId).text('');
+
+        // 対応する隠しフィールドの値を空に設定
+        $('#' + hiddenId).val('');
     });
 });

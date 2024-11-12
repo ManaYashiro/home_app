@@ -2,11 +2,11 @@
     $filename = $alldata['filename'];
     $data = $alldata['data'];
     $upload = $alldata['upload'];
-
 @endphp
 
 <div class="w-1/2 flex justify-between items-center">
     <x-input-file id="{{ $filename }}_file_input" name="{{ $filename }}" class="flex-1" />
+    <input type="hidden" id="{{ $filename }}_hidden" name="{{ $filename }}_hidden" value="{{ $data }}" />
     @if (isset($data) && $data)
         @php
             $label = \App\Helpers\CustomHelper::trimFilename($data, $upload);
