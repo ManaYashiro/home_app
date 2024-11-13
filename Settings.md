@@ -130,6 +130,27 @@ C:\windows\system32\drivers\etc\hosts を開いて追記
 
 手順はほぼ同じ
 
+package 追加の場合
+
+```bash
+  composer install
+  npm install
+```
+
+db 変更
+
+```bash
+  php artisan migrate
+```
+
+cache する
+
+```bash
+  php artisan optimize
+```
+
+asset build する
+
 ```bash
   npm run build
 ```
