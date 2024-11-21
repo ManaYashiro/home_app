@@ -48,7 +48,7 @@ class ResidencyCertificateApplicantRequest extends FormRequest
             'name_kana' => 'required|string|max:255',
             'username' => 'required|string|unique:residency_certificate_applicants,username,' . ($applicant ? $applicant->id : 'NULL'),
             'password' => 'required|string|min:8', // 例：パスワードは8文字以上
-            'email' => 'email|unique:residency_certificate_applicants,email,' . ($applicant ? $applicant->id : 'NULL'),
+            'email' => 'nullable|email|unique:residency_certificate_applicants,email,' . ($applicant ? $applicant->id : 'NULL'),
             'country' => 'nullable|string',
             'language' => 'nullable|string',
             'age' => 'nullable|integer',
