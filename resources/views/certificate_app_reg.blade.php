@@ -47,7 +47,8 @@
                                 <span class="text-red-500 ml-1">*</span>
                             </div>
 
-                            <x-select id="cohort_name" class="block mt-1 w-full" name="cohort_name" :options="$options" />
+                            <x-select id="cohort_name" class="block mt-1 w-full" name="cohort_name" :options="$options"
+                                :value="old('cohort_name')" />
                             <x-input-error :messages="$errors->get('cohort_name')" class="mt-2 search-error-message" />
                         </div>
 
@@ -116,7 +117,7 @@
                                 '' => __('certificate_app_reg.select'),
                                 '1' => __('certificate_app_reg.srilanka'),
                             ]"
-                                disabled />
+                                :value="old('country')" disabled />
                             <x-input-error :messages="$errors->get('country')" class="mt-2" />
                         </div>
 
@@ -126,7 +127,7 @@
                                 '' => __('certificate_app_reg.select'),
                                 '1' => __('certificate_app_reg.srilanka'),
                             ]"
-                                disabled />
+                                :value="old('language')" disabled />
                             <x-input-error :messages="$errors->get('language')" class="mt-2" />
                         </div>
 
@@ -145,7 +146,7 @@
                                 '2' => __('certificate_app_reg.female'),
                                 '3' => __('certificate_app_reg.other'),
                             ]"
-                                disabled />
+                                :value="old('gender')" disabled />
                             <x-input-error :messages="$errors->get('gender')" class="mt-2" />
                         </div>
 
@@ -159,7 +160,7 @@
                                     'N3' => 'N3',
                                     'N4' => 'N4',
                                     'N5' => 'N5',
-                                ]" disabled />
+                                ]" :value="old('japanese_level')" disabled />
                             <x-input-error :messages="$errors->get('japanese_level')" class="mt-2" />
                         </div>
 
