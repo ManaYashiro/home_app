@@ -78,28 +78,6 @@ $(function() {
         $('#select_username_id').prop('disabled', isSelected); // 選択されていれば無効化
     });
 
-    // 検索disabled判定
-    $('#input_username').on('input', function () {
-        // 入力フィールドが空でない場合、ボタンを有効にする
-        if ($(this).val().trim() !== '') {
-            $('#searchButton').prop('disabled', false);
-        } else {
-            $('#searchButton').prop('disabled', true);
-        }
-    });
-
-    //検索を押すまでdisabled判定
-    $('#searchButton').on('click', function() {
-        $('#password').prop('disabled', false);
-        $('#email').prop('disabled', false);
-        $('#country').prop('disabled', false);
-        $('#language').prop('disabled', false);
-        $('#age').prop('disabled', false);
-        $('#gender').prop('disabled', false);
-        $('#japanese_level').prop('disabled', false);
-        $('#live_class_lesson').prop('disabled', false);
-    });
-
     //入力データ全てリセット
     $('#resetButton').on('click', function() {
         const isSelected = $(this).val() !== ''; // 空でない場合は選択されていると判断
