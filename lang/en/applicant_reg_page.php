@@ -47,7 +47,7 @@ return [
     'training_completion_certificate_nexus' => 'Training completion certificate(Nexus)',
     'moving_out_certificate' => 'Certificate of transfer',
     'national_health_insurance_withdrawal_certificate' => 'Certificate of withdrawal from National Health Insurance',
-    'national_pension_withdrawal_certificate' => 'Certificate of withdrawal from National Pension',
+    // 'national_pension_withdrawal_certificate' => 'Certificate of withdrawal from National Pension',
     'moving_in_procedure' => 'Transfer procedures (reverse side of residence card)',
     'new_address_national_health_insurance' => 'National Health Insurance card for new address',
     'new_address_national_pension_book' => 'Pension book for new address',
