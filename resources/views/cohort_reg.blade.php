@@ -27,55 +27,84 @@
                     <form method="POST" action="{{ route('cohorts.store') }}">
                         @csrf <!-- CSRFトークンの追加 -->
                         <div>
-                            <x-input-label for="cohortName" :value="__('cohort_reg.cohortRegistration')" />
-                            <x-text-input id="cohortName" class="block mt-1 w-full" type="text" name="cohortName"
-                                :value="old('cohortName')" autofocus />
-                            <x-input-error :messages="$errors->get('cohortName')" class="mt-2" />
+                            <div class="flex items-center">
+                                <x-input-label for="cohort_name" :value="__('cohort_reg.cohort_name')" />
+                                <span class="text-red-500 ml-1">*</span>
+                            </div>
+                            @php
+                                $options = array_merge(
+                                    ['' => __('certificate_app_reg.select')],
+                                    $cohorts->pluck('cohort_name', 'cohort_name')->toArray(),
+                                );
+                            @endphp
+                            <x-select id="select_cohort" class="block mt-1 w-full" name="cohort_name"
+                                :options="$options" />
+
+                            <x-text-input id="input_cohort" class="block mt-1 w-full" type="text" name="cohort_name"
+                                :value="old('cohort_name')" disabled />
+                            <x-input-error :messages="$errors->get('cohort_name')" class="mt-2" />
                         </div>
 
                         <div class="mt-4">
-                            <x-input-label for="appCeoDate" :value="__('cohort_reg.appCeoDate')" />
-                            <x-text-input id="appCeoDate" class="block mt-1 w-full" type="date" name="appCeoDate"
-                                :value="old('appCeoDate')" />
-                            <x-input-error :messages="$errors->get('appCeoDate')" class="mt-2" />
+                            <div class="flex items-center">
+                                <x-input-label for="app_ceo_date" :value="__('cohort_reg.app_ceo_date')" />
+                                <span class="text-red-500 ml-1">*</span>
+                            </div>
+
+                            <x-text-input id="app_ceo_date" class="block mt-1 w-full" type="date" name="app_ceo_date"
+                                :value="old('app_ceo_date')" />
+                            <x-input-error :messages="$errors->get('app_ceo_date')" class="mt-2" />
                         </div>
 
                         <div class="mt-4">
-                            <x-input-label for="appVisaDate" :value="__('cohort_reg.appVisaDate')" />
-                            <x-text-input id="appVisaDate" class="block mt-1 w-full" type="date" name="appVisaDate"
-                                :value="old('appVisaDate')" />
-                            <x-input-error :messages="$errors->get('appVisaDate')" class="mt-2" />
+                            <x-input-label for="app_visa_date" :value="__('cohort_reg.app_visa_date')" />
+                            <x-text-input id="app_visa_date" class="block mt-1 w-full" type="date"
+                                name="app_visa_date" :value="old('app_visa_date')" />
+                            <x-input-error :messages="$errors->get('app_visa_date')" class="mt-2" />
                         </div>
 
                         <div class="mt-4">
-                            <x-input-label for="jpnLangStudyStartDate" :value="__('cohort_reg.jpnLangStudyStartDate')" />
-                            <x-text-input id="jpnLangStudyStartDate" class="block mt-1 w-full" type="date"
-                                name="jpnLangStudyStartDate" :value="old('jpnLangStudyStartDate')" />
-                            <x-input-error :messages="$errors->get('jpnLangStudyStartDate')" class="mt-2" />
+                            <x-input-label for="jpn_lang_study_start_date" :value="__('cohort_reg.jpn_lang_study_start_date')" />
+                            <x-text-input id="jpn_lang_study_start_date" class="block mt-1 w-full" type="date"
+                                name="jpn_lang_study_start_date" :value="old('jpn_lang_study_start_date')" />
+                            <x-input-error :messages="$errors->get('jpn_lang_study_start_date')" class="mt-2" />
                         </div>
 
                         <div class="mt-4">
-                            <x-input-label for="jpnLangStudyEndDate" :value="__('cohort_reg.jpnLangStudyEndDate')" />
-                            <x-text-input id="jpnLangStudyEndDate" class="block mt-1 w-full" type="date"
-                                name="jpnLangStudyEndDate" :value="old('jpnLangStudyEndDate')" />
-                            <x-input-error :messages="$errors->get('jpnLangStudyEndDate')" class="mt-2" />
+                            <x-input-label for="jpn_lang_study_end_date" :value="__('cohort_reg.jpn_lang_study_end_date')" />
+                            <x-text-input id="jpn_lang_study_end_date" class="block mt-1 w-full" type="date"
+                                name="jpn_lang_study_end_date" :value="old('jpn_lang_study_end_date')" />
+                            <x-input-error :messages="$errors->get('jpn_lang_study_end_date')" class="mt-2" />
                         </div>
 
                         <div class="mt-4">
-                            <x-input-label for="dateOfEntry" :value="__('cohort_reg.dateOfEntry')" />
-                            <x-text-input id="dateOfEntry" class="block mt-1 w-full" type="date" name="dateOfEntry"
-                                :value="old('dateOfEntry')" />
-                            <x-input-error :messages="$errors->get('dateOfEntry')" class="mt-2" />
+                            <x-input-label for="date_of_entry" :value="__('cohort_reg.date_of_entry')" />
+                            <x-text-input id="date_of_entry" class="block mt-1 w-full" type="date"
+                                name="date_of_entry" :value="old('date_of_entry')" />
+                            <x-input-error :messages="$errors->get('date_of_entry')" class="mt-2" />
                         </div>
 
                         <!-- 登録ボタン -->
-                        <div class="mt-6">
-                            <x-primary-button class="ml-4">
+                        <div class="mt-6 space-x-4">
+                            <x-primary-button>
                                 {{ __('cohort_reg.register') }}
                             </x-primary-button>
                         </div>
                     </form>
                     <!-- フォーム終了 -->
+
+                    <!-- 削除ボタンのための別フォーム -->
+                    <form id="delete-cohort-form" action="{{ route('cohorts.destroy') }}" method="POST"
+                        style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" name="cohort_name" id="cohort_name_to_delete" value="">
+
+                        <!-- 削除ボタン -->
+                        <x-primary-button class="mt-4 text-red-600" id="delete-cohort-button">
+                            {{ __('cohort_reg.delete') }}
+                        </x-primary-button>
+                    </form>
                 </div>
             </div>
         </div>
